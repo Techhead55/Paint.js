@@ -10,21 +10,62 @@ var colours = ["FF3636", "FF7C36", "FFAD29", "EBE544", "42A61E", "57D629", "5EE8
 //red orangedark orangelight yellow darkgreen darkgreenlight green greenlight darkblue lightdarkblue darklightblue lightblue darkpurple lightdarkpurple darklightpurple lightpurple white black
 var mouse = false;
 var mode = "draw";
-var colour = new Object;
-colour.r=255;
-colour.g=255;
-colour.b=255;
-colour.opacity= 1;
-colour.export = function () {
-    brushColour = "rgba(" + colour.r + "," + colour.g + "," + colour.b + "," + colour.opacity+")";
-};
+var grd;
+var drawType = "fill";
+var types = ["fill", "grad"];
+var brushGrad;
+var shape = "circle";
+var shapes = ["circle","square"];
+function setShape(input) {
+    shape = input;
+}
+function setDrawType(input) {
+    if (input === "fill") {
+        drawType = input;
+    }
+    else {
+        drawType = "grad";
+        brushGrad = input;
+    }
+}
+function setShape(input) {
+    shape = input;
+}
 function draw(x, y) {
     if (y > canvas.height || x > canvas.width) { }
+    else if (drawType === "fill") {
+        if (shape === "circle") {
+            context.beginPath();
+            context.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+            context.fillStyle = brushColour;
+            context.fill();
+        }
+        else {
+            context.beginPath();
+            context.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+            context.fillStyle = brushColour;
+            context.fill();
+        }
+    }
     else {
-        context.beginPath();
-        context.arc(x, y, brushSize, 0, 2 * Math.PI, false);
-        context.fillStyle = brushColour;
-        context.fill();
+        if (shape === "circle") {
+            context.beginPath();
+            context.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+            var grd = context.createRadialGradient(x, y, brushSize / brushGrad, x, y, brushSize);
+            grd.addColorStop(0, brushColour);
+            grd.addColorStop(1, 'rgba(255,255,255,0)');
+            context.fillStyle = grd;
+            context.fill();
+        }
+        else {
+            context.beginPath();
+            context.rect(x - brushSize, y - brushSize, brushSize*2, brushSize*2);
+            var grd = context.createRadialGradient(x, y, brushSize*2/ brushGrad,x-brushSize,y-brushSize,brushSize*2);
+            grd.addColorStop(0, brushColour);
+            grd.addColorStop(1, 'rgba(255,255,255,0)')
+            context.fillStyle = brushColour;
+            context.fill();
+        }
     }
 }
 function colourSet(input) {
@@ -54,7 +95,8 @@ window.onmousemove = function (e) {
     posit[1] = e.clientY || e.pageY;
     if (mouse === true) {
         if (mode === "erase") {
-            context.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize*2, brushSize*2);
+            if (posit[1] > canvas.height || posit[0] > canvas.width) { }
+            else {context.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize*2, brushSize*2);}
         }
         else {
             draw(posit[0], posit[1]);

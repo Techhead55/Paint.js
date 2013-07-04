@@ -45,39 +45,71 @@
                 background-color: #00D0FF;
                 color: white;
             }
-            #a{
-                background-color: #FF7C3B;
-                left: 944px;
-                top: 200px;
-            }
-            #b{
-                background-color: #FF6D24;
-                left: 984px;
-                top: 200px;
-            }
-            #c{
-                background-color: #FF6112;
-                left: 944px;
-                top: 240px;
-            }
-            #d{
-                background-color: #FF5500;
-                left: 984px;
-                top: 240px;
-            }
-#e{
+#a{
+    background-color: #FF9159;
+    left: 944px;
+    top: 200px;
+}
+ #b{
+    background-color: #FF8547;
+    left: 984px;
+    top: 200px;
+}
+#c{
+    background-color: #FF7936;
+    left: 944px;
+    top: 240px;
+}
+#d{
+    background-color: #FF6D24;
+    left: 984px;
+    top: 240px;
+}
+#e {
+    background-color: #FF6112;
+    left: 944px;
+    top: 280px;
+}
+#f {
+    background-color: #FF5500;
+    left: 984px;
+    top: 280px;
+}
+#g{
     background-color: white;
     left: 864px;
     top: 200px;
     width: 80px;
     color: black;
 }
-#f{
+#h{
     background-color: black;
     left: 864px;
     top: 240px;
     width: 80px;
     color: white;
+}
+#i {
+    background-color: #7291C4;
+    left: 864px;
+    top: 280px;
+}
+#j {
+    background-color: #6489C4;
+    left: 904px;
+    top: 280px;
+}
+#k {
+    background-color: #90E670;
+    left: 864px;
+    top: 320px;
+    width: 80px;
+}
+#l {
+    background-color: #52E31E;
+    left: 944px;
+    top: 320px;
+    width: 80px;
 }
 /*
 #colourpicker {
@@ -226,4 +258,11 @@
 #range5 {
     top: 480px;
     background-color: #FF5500;
+}
+#export {
+    top: 440px;
+    left: 864px;
+    width: 160px;
+    height: 120px;
+    background: #5EE82C;
 }

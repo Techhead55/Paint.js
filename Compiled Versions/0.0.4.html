@@ -1,0 +1,443 @@
+﻿!DOCTYPE html>
+<html>
+    <head>
+        <title>Draw.Js</title>
+        <link type="text/css" rel="stylesheet" href="style.css" />
+        <style>
+            body{background-color: #74AFF2;style="cursor:pointer";}
+#canvas {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas2{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: white;
+}
+.button{
+                position: fixed;
+                left: 0px;
+                padding: 0px;
+                margin: 0px;
+                border: 0px;
+                width: 40px;
+                height: 40px;
+                color: white;
+            }
+            #reset{
+                position: fixed;
+                top: 160px;
+                left: 864px;
+                padding: 0px;
+                margin: 0px;
+                border: 0px;
+                width: 80px;
+                height: 40px;
+                background-color: #4DDEFF;
+                color: white;
+            }
+            #erase{
+                position: fixed;
+                top: 160px;
+                left: 944px;
+                padding: 0px;
+                margin: 0px;
+                border: 0px;
+                width: 80px;
+                height: 40px;
+                background-color: #00D0FF;
+                color: white;
+            }
+#a{
+    background-color: #FF9159;
+    left: 944px;
+    top: 200px;
+}
+ #b{
+    background-color: #FF8547;
+    left: 984px;
+    top: 200px;
+}
+#c{
+    background-color: #FF7936;
+    left: 944px;
+    top: 240px;
+}
+#d{
+    background-color: #FF6D24;
+    left: 984px;
+    top: 240px;
+}
+#e {
+    background-color: #FF6112;
+    left: 944px;
+    top: 280px;
+}
+#f {
+    background-color: #FF5500;
+    left: 984px;
+    top: 280px;
+}
+#g{
+    background-color: white;
+    left: 864px;
+    top: 200px;
+    width: 80px;
+    color: black;
+}
+#h{
+    background-color: black;
+    left: 864px;
+    top: 240px;
+    width: 80px;
+    color: white;
+}
+#i {
+    background-color: #7291C4;
+    left: 864px;
+    top: 280px;
+}
+#j {
+    background-color: #6489C4;
+    left: 904px;
+    top: 280px;
+}
+#k {
+    background-color: #90E670;
+    left: 864px;
+    top: 320px;
+    width: 80px;
+}
+#l {
+    background-color: #52E31E;
+    left: 944px;
+    top: 320px;
+    width: 80px;
+}
+/*
+#colourpicker {
+    position: fixed;
+    top: 0px;
+    left: 1024px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 160px;
+    background-color: #FF7C3B;
+    color: white;
+}
+#set {
+    position: fixed;
+    top: 140px;
+    left: 1024px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 20px;
+    background-color: #FF6D24;
+    color: white;
+    text-align: center;
+}
+    */
+#specific {
+    position: fixed;
+    top: 280px;
+    left: 864px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 220px;
+    background-color: #F7E83E;
+}
+#button1 {
+    left: 864px;
+    top: 0px;
+    background-color: #A944DB;
+}
+#button2 {
+    left: 904px;
+    top: 0px;
+    background-color: #2D67C4;
+}
+#button3 {
+    left: 944px;
+    top: 0px;
+    background-color: #42A61E;
+}
+#button4 {
+    left: 984px;
+    top: 0px;
+    background-color:#FF3636;
+}
+#button5 {
+    left: 864px;
+    top: 40px;
+    background-color: #C44FFF;
+}
+#button6 {
+    left: 904px;
+    top: 40px;
+    background-color: #4089FF;
+}
+#button7 {
+    left: 944px;
+    top: 40px;
+    background-color: #57D629;
+}
+#button8 {
+    left: 984px;
+    top: 40px;
+    background-color: #FF7C36;
+}
+#button9 {
+    left: 864px;
+    top: 80px;
+    background-color: #CD6BFF;
+}
+#button10 {
+    left: 904px;
+    top: 80px;
+    background-color: #689EF7;
+}
+#button11 {
+    left: 944px;
+    top: 80px;
+    background-color: #5EE82C;
+}
+#button12 {
+    left: 984px;
+    top: 80px;
+    background-color: #FFAD29;
+}
+#button13 {
+    left: 864px;
+    top: 120px;
+    background-color: #D88AFF;
+}
+#button14 {
+    left: 904px;
+    top: 120px;
+    background-color: #89B4FA;
+}
+#button15 {
+    left: 944px;
+    top: 120px;
+    background-color: #73FF40;
+}
+#button16 {
+    left: 984px;
+    top: 120px;
+    background-color: #EBE544;
+}
+.ranges {
+    position: fixed;
+    left: 864px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 20px;
+    -webkit-appearance: none !important;
+}
+#range1 {
+    top: 400px;
+    background-color: #FF8547;
+}
+#range2 {
+    top: 420px;
+    background-color: #FF7936;
+}
+#range3 {
+    top: 440px;
+    background-color: #FF6D24;
+}
+#range4 {
+    top: 460px;
+    background-color: #FF6112;
+}
+#range5 {
+    top: 480px;
+    background-color: #FF5500;
+}
+#export {
+    top: 440px;
+    left: 864px;
+    width: 160px;
+    height: 120px;
+    background: #5EE82C;
+}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas2" width="864px" height="560px"></canvas>
+        <canvas id="canvas" width="864px" height="560px"></canvas>
+        <script>
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            var canvas2 = document.getElementById('canvas2');
+            var context2 = canvas2.getContext('2d');
+            var posit = [];
+            var brushColour = "73FF40";
+            var brushSize = "10";
+            var back = "white";
+            var colours = ["FF3636", "FF7C36", "FFAD29", "EBE544", "42A61E", "57D629", "5EE82C", "73FF40", "2D67C4", "4089FF", "689EF7", "89B4FA", "A944DB", "C44FFF", "CD6BFF", "D88AFF", "white", "black"];
+            //red orangedark orangelight yellow darkgreen darkgreenlight green greenlight darkblue lightdarkblue darklightblue lightblue darkpurple lightdarkpurple darklightpurple lightpurple white black
+            var mouse = false;
+            var mode = "draw";
+            var grd;
+            var drawType = "fill";
+            var types = ["fill", "grad"];
+            var brushGrad;
+            var shape = "circle";
+            var shapes = ["circle", "square"];
+            function setShape(input) {
+                shape = input;
+            }
+            function setDrawType(input) {
+                if (input === "fill") {
+                    drawType = input;
+                }
+                else {
+                    drawType = "grad";
+                    brushGrad = input;
+                }
+            }
+            function setShape(input) {
+                shape = input;
+            }
+            function draw(x, y) {
+                if (y > canvas.height || x > canvas.width) { }
+                else if (drawType === "fill") {
+                    if (shape === "circle") {
+                        context.beginPath();
+                        context.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+                        context.fillStyle = brushColour;
+                        context.fill();
+                    }
+                    else {
+                        context.beginPath();
+                        context.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+                        context.fillStyle = brushColour;
+                        context.fill();
+                    }
+                }
+                else {
+                    if (shape === "circle") {
+                        context.beginPath();
+                        context.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+                        var grd = context.createRadialGradient(x, y, brushSize / brushGrad, x, y, brushSize);
+                        grd.addColorStop(0, brushColour);
+                        grd.addColorStop(1, 'rgba(255,255,255,0)');
+                        context.fillStyle = grd;
+                        context.fill();
+                    }
+                    else {
+                        context.beginPath();
+                        context.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+                        var grd = context.createRadialGradient(x, y, brushSize * 2 / brushGrad, x - brushSize, y - brushSize, brushSize * 2);
+                        grd.addColorStop(0, brushColour);
+                        grd.addColorStop(1, 'rgba(255,255,255,0)')
+                        context.fillStyle = brushColour;
+                        context.fill();
+                    }
+                }
+            }
+            function colourSet(input) {
+                brushColour = input;
+                mode = "draw";
+                document.getElementById('colourpicker').style.backgroundColor = input;
+            }
+            function reset() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            function erase() {
+                mode = "erase";
+            }
+            function brushSet(input) {
+                brushSize = input;
+            }
+            function backgroundColour(input) {
+                context2.beginPath();
+                context2.rect(0, 0, canvas2.width, canvas2.height);
+                context2.fillStyle = input;
+                context2.fill();
+                back = input;
+            }
+            window.onmousemove = function (e) {
+                e = e || window.event;
+                posit[0] = e.clientX || e.pageX;
+                posit[1] = e.clientY || e.pageY;
+                if (mouse === true) {
+                    if (mode === "erase") {
+                        if (posit[1] > canvas.height || posit[0] > canvas.width) { }
+                        else { context.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2); }
+                    }
+                    else {
+                        draw(posit[0], posit[1]);
+                    }
+                }
+            };
+            window.onmousedown = function (e) {
+                mouse = true;
+                if (mode === "erase") {
+                    context.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+                }
+                else {
+                    draw(posit[0], posit[1]);
+                }
+            };
+            window.onmouseup = function (e) {
+                mouse = false;
+            };
+            window.touchstart = function (e) {
+                mouse = true;
+                if (mode === "erase") {
+                    context.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+                }
+                else {
+                    draw(posit[0], posit[1]);
+                }
+            }
+            window.touchend = function (e) {
+                mouse = false;
+            };
+        </script>
+        <div id="output"></div>
+        <button id="button1" class="button" onclick="colourSet(colours[12])"></button>
+        <button id="button2" class="button" onclick="colourSet(colours[8])"></button>
+        <button id="button3" class="button" onclick="colourSet(colours[4])"></button>
+        <button id="button4" class="button" onclick="colourSet(colours[0])"></button>
+        <button id="button5" class="button" onclick="colourSet(colours[13])"></button>
+        <button id="button6" class="button" onclick="colourSet(colours[9])"></button>
+        <button id="button7" class="button" onclick="colourSet(colours[5])"></button>
+        <button id="button8" class="button" onclick="colourSet(colours[1])"></button>
+        <button id="button9" class="button" onclick="colourSet(colours[14])"></button>
+        <button id="button10" class="button" onclick="colourSet(colours[10])"></button>
+        <button id="button11" class="button" onclick="colourSet(colours[6])"></button>
+        <button id="button12" class="button" onclick="colourSet(colours[2])"></button>
+        <button id="button13" class="button" onclick="colourSet(colours[15])"></button>
+        <button id="button14" class="button" onclick="colourSet(colours[11])"></button>
+        <button id="button15" class="button" onclick="colourSet(colours[7])"></button>
+        <button id="button16" class="button" onclick="colourSet(colours[3])"></button>
+        <button id="reset" onclick="reset()">Reset The Canvas</button>
+        <button id="erase" onclick="erase()">Eraser</button>
+        <button id="a" class="button" onclick="brushSet(5)">5px</button>
+        <button id="b" class="button" onclick="brushSet(10)">10px</button>
+        <button id="c" class="button" onclick="brushSet(15)">15px</button>
+        <button id="d" class="button" onclick="brushSet(20)">20px</button>
+        <button id="e" class="button" onclick="brushSet(25)">25px</button>
+        <button id="f" class="button" onclick="brushSet(30)">30px</button>
+        <button id="g" class="button" onclick="backgroundColour(colours[16])">Background</button>
+        <button id="h" class="button" onclick="backgroundColour(colours[17])">Background</button>
+        <button id="i" class="button" onclick="setDrawType(types[0])">Solid</button>
+        <button id="j" class="button" onclick="setDrawType(20)">Spray</button>
+        <button id="k" class="button" onclick="setShape(shapes[0])">Circle Brush</button>
+        <button id="l" class="button" onclick="setShape(shapes[1])">Square Brush</button>
+    </body>
+</html>

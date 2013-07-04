@@ -5,26 +5,10 @@
         <link type="text/css" rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <canvas id="canvas2" width="864px" height="500px"></canvas>
-        <canvas id="canvas" width="864px" height="500px"></canvas>
+        <canvas id="canvas2" width="864px" height="560px"></canvas>
+        <canvas id="canvas" width="864px" height="560px"></canvas>
         <script src="main.js"></script>
         <div id="output"></div>
-        <button id="reset" onclick="reset()">Reset The Canvas</button>
-        <button id="erase" onclick="erase()">Eraser</button>
-        <button id="a" class="button" onclick="brushSet(5)">5px</button>
-        <button id="b" class="button" onclick="brushSet(10)">10px</button>
-        <button id="c" class="button" onclick="brushSet(15)">15px</button>
-        <button id="d" class="button" onclick="brushSet(20)">20px</button>
-        
-        <div id="specific">
-            
-            <div id="range1" class="ranges"><input type="range" name="brush_size" min="1" max="255"></div>
-            <div id="range2" class="ranges"><input type="range" name="brush_gradient" min="1" max="255"></div>
-            <div id="range3" class="ranges"><input type="range" value="255" name="r" min="1" max="255"></div>
-            <div id="range4" class="ranges"><input type="range" value="255" name="g" min="1" max="255"></div>
-            <div id="range5" class="ranges"><input type="range" value="255" name="b" min="1" max="255"></div>
-            
-        </div>
         <button id="button1" class="button" onclick="colourSet(colours[12])"></button>
         <button id="button2" class="button" onclick="colourSet(colours[8])"></button>
         <button id="button3" class="button" onclick="colourSet(colours[4])"></button>
@@ -41,7 +25,19 @@
         <button id="button14" class="button" onclick="colourSet(colours[11])"></button>
         <button id="button15" class="button" onclick="colourSet(colours[7])"></button>
         <button id="button16" class="button" onclick="colourSet(colours[3])"></button>
-        <button id="e" class="button" onclick="backgroundColour(colours[16])">Background</button>
-        <button id="f" class="button" onclick="backgroundColour(colours[17])">Background</button>
+        <button id="reset" onclick="reset()">Reset The Canvas</button>
+        <button id="erase" onclick="erase()">Eraser</button>
+        <button id="a" class="button" onclick="brushSet(5)">5px</button>
+        <button id="b" class="button" onclick="brushSet(10)">10px</button>
+        <button id="c" class="button" onclick="brushSet(15)">15px</button>
+        <button id="d" class="button" onclick="brushSet(20)">20px</button>
+        <button id="e" class="button" onclick="brushSet(25)">25px</button>
+        <button id="f" class="button" onclick="brushSet(30)">30px</button>
+        <button id="g" class="button" onclick="backgroundColour(colours[16])">Background</button>
+        <button id="h" class="button" onclick="backgroundColour(colours[17])">Background</button>
+        <button id="i" class="button" onclick="setDrawType(types[0])">Solid</button>
+        <button id="j" class="button" onclick="setDrawType(20)">Spray</button>
+        <button id="k" class="button" onclick="setShape(shapes[0])">Circle Brush</button>
+        <button id="l" class="button" onclick="setShape(shapes[1])">Square Brush</button>
     </body>
 </html>
