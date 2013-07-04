@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Draw.Js</title>
+        <link type="text/css" rel="stylesheet" href="style.css" />
+        <style>
+            body{background-color: #74AFF2;}
+#canvas {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas2{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: white;
+}
+.button{
+                position: fixed;
+                top: 500px;
+                left: 0px;
+                padding: 0px;
+                margin: 0px;
+                border: 0px;
+                width: 40px;
+                height: 40px;
+                color: white;
+            }
+            #green{
+                background-color: #73FF40;
+            }
+            #blue{
+                background-color: #4089FF;
+                left: 40px;
+            }
+            #red{
+                background-color: #FF3636;
+                left: 80px;
+            }
+            #yellow{
+                background-color: #EBE544;
+                left: 120px;
+            }
+            #orange{
+                background-color: #FF8D29;
+                left: 160px;
+            }
+            #purple{
+                background-color: #C44FFF;
+                left: 200px;
+            }
+            #reset{
+                position: fixed;
+                top: 500px;
+                left: 240px;
+                padding: 0px;
+                margin: 0px;
+                border: 0px;
+                width: 120px;
+                height: 20px;
+                background-color: #4DDEFF;
+                color: white;
+            }
+            #erase{
+                position: fixed;
+                top: 520px;
+                left: 240px;
+                padding: 0px;
+                margin: 0px;
+                border: 0px;
+                width: 120px;
+                height: 20px;
+                background-color: #00D0FF;
+                color: white;
+            }
+            #a{
+                background-color: #FF7C3B;
+                left: 360px;
+            }
+            #b{
+                background-color: #FF6D24;
+                left: 400px;
+            }
+            #c{
+                background-color: #FF6112;
+                left: 440px;
+            }
+            #d{
+                background-color: #FF5500;
+                left: 480px;
+            }
+            #c{
+                background-color: #FF6112;
+                left: 440px;
+            }
+            #d{
+                background-color: #FF5500;
+                left: 480px;
+            }
+#e{
+    background-color: white;
+    left: 520px;
+}
+#f{
+    background-color: black;
+    left: 560px;
+}
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas2" width="1024px" height="500px"></canvas>
+        <canvas id="canvas" width="1024px" height="500px"></canvas>
+        <script>
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            var canvas2 = document.getElementById('canvas2');
+            var context2 = canvas2.getContext('2d');
+            var posit = [];
+            var brushColour = "73FF40";
+            var brushSize = "10";
+            var back = "white";
+            var colours = ["73FF40", "4089FF", "FF3636", "EBE544", "FF8D29", "C44FFF", "black", "white"];
+            function draw(x, y) {
+                if (y > 500) { }
+                else {
+                    context.beginPath();
+                    context.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+                    context.fillStyle = brushColour;
+                    context.fill();
+                }
+            }
+            function colourSet(input) {
+                brushColour = input;
+            }
+            function reset() {
+                context.beginPath();
+                context.rect(0, 0, 1024, 500);
+                context.fillStyle = "rgba(255, 255, 255, 0.00)";
+                context.fill();
+            }
+            function erase() {
+                brushColour = back;
+            }
+            function brushSet(input) {
+                brushSize = input;
+            }
+            function backgroundColour(input) {
+                context2.beginPath();
+                context2.rect(0, 0, 1024, 500);
+                context2.fillStyle = input;
+                context2.fill();
+                back = input;
+            }
+            window.onmousemove = function (e) {
+                e = e || window.event;
+                posit[0] = e.clientX || e.pageX;
+                posit[1] = e.clientY || e.pageY;
+            };
+            window.onmousedown = function (e) {
+                draw(posit[0], posit[1], 5);
+
+            };
+
+        </script>
+        <div id="output"></div>
+        <button id="green" class="button" onclick="colourSet(colours[0])"></button>
+        <button id="blue" class="button" onclick="colourSet(colours[1])"></button>
+        <button id="red" class="button" onclick="colourSet(colours[2])"></button>
+        <button id="yellow" class="button" onclick="colourSet(colours[3])"></button>
+        <button id="orange" class="button" onclick="colourSet(colours[4])"></button>
+        <button id="purple" class="button" onclick="colourSet(colours[5])"></button>
+        <button id="reset" onclick="reset()">Reset The Canvas</button>
+        <button id="erase" onclick="erase()">Eraser</button>
+        <button id="a" class="button" onclick="brushSet(5)">5px</button>
+        <button id="b" class="button" onclick="brushSet(10)">10px</button>
+        <button id="c" class="button" onclick="brushSet(15)">15px</button>
+        <button id="d" class="button" onclick="brushSet(20)">20px</button>
+        <button id="e" class="button" onclick="backgroundColour(colours[7])"></button>
+        <button id="f" class="button" onclick="backgroundColour(colours[6])"></button>
+    </body>
+</html>

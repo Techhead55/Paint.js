@@ -1,4 +1,4 @@
-﻿body{background-color: #74AFF2;}
+﻿body{background-color: #74AFF2;style="cursor:pointer";}
 #canvas {
     position: fixed;
     left: 0px;
@@ -13,7 +13,6 @@
 }
 .button{
                 position: fixed;
-                top: 500px;
                 left: 0px;
                 padding: 0px;
                 margin: 0px;
@@ -22,82 +21,209 @@
                 height: 40px;
                 color: white;
             }
-            #green{
-                background-color: #73FF40;
-            }
-            #blue{
-                background-color: #4089FF;
-                left: 40px;
-            }
-            #red{
-                background-color: #FF3636;
-                left: 80px;
-            }
-            #yellow{
-                background-color: #EBE544;
-                left: 120px;
-            }
-            #orange{
-                background-color: #FF8D29;
-                left: 160px;
-            }
-            #purple{
-                background-color: #C44FFF;
-                left: 200px;
-            }
             #reset{
                 position: fixed;
-                top: 500px;
-                left: 240px;
+                top: 160px;
+                left: 864px;
                 padding: 0px;
                 margin: 0px;
                 border: 0px;
-                width: 120px;
-                height: 20px;
+                width: 80px;
+                height: 40px;
                 background-color: #4DDEFF;
                 color: white;
             }
             #erase{
                 position: fixed;
-                top: 520px;
-                left: 240px;
+                top: 160px;
+                left: 944px;
                 padding: 0px;
                 margin: 0px;
                 border: 0px;
-                width: 120px;
-                height: 20px;
+                width: 80px;
+                height: 40px;
                 background-color: #00D0FF;
                 color: white;
             }
             #a{
                 background-color: #FF7C3B;
-                left: 360px;
+                left: 944px;
+                top: 200px;
             }
             #b{
                 background-color: #FF6D24;
-                left: 400px;
+                left: 984px;
+                top: 200px;
             }
             #c{
                 background-color: #FF6112;
-                left: 440px;
+                left: 944px;
+                top: 240px;
             }
             #d{
                 background-color: #FF5500;
-                left: 480px;
-            }
-            #c{
-                background-color: #FF6112;
-                left: 440px;
-            }
-            #d{
-                background-color: #FF5500;
-                left: 480px;
+                left: 984px;
+                top: 240px;
             }
 #e{
     background-color: white;
-    left: 520px;
+    left: 864px;
+    top: 200px;
+    width: 80px;
+    color: black;
 }
 #f{
     background-color: black;
-    left: 560px;
+    left: 864px;
+    top: 240px;
+    width: 80px;
+    color: white;
+}
+/*
+#colourpicker {
+    position: fixed;
+    top: 0px;
+    left: 1024px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 160px;
+    background-color: #FF7C3B;
+    color: white;
+}
+#set {
+    position: fixed;
+    top: 140px;
+    left: 1024px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 20px;
+    background-color: #FF6D24;
+    color: white;
+    text-align: center;
+}
+    */
+#specific {
+    position: fixed;
+    top: 280px;
+    left: 864px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 220px;
+    background-color: #F7E83E;
+}
+#button1 {
+    left: 864px;
+    top: 0px;
+    background-color: #A944DB;
+}
+#button2 {
+    left: 904px;
+    top: 0px;
+    background-color: #2D67C4;
+}
+#button3 {
+    left: 944px;
+    top: 0px;
+    background-color: #42A61E;
+}
+#button4 {
+    left: 984px;
+    top: 0px;
+    background-color:#FF3636;
+}
+#button5 {
+    left: 864px;
+    top: 40px;
+    background-color: #C44FFF;
+}
+#button6 {
+    left: 904px;
+    top: 40px;
+    background-color: #4089FF;
+}
+#button7 {
+    left: 944px;
+    top: 40px;
+    background-color: #57D629;
+}
+#button8 {
+    left: 984px;
+    top: 40px;
+    background-color: #FF7C36;
+}
+#button9 {
+    left: 864px;
+    top: 80px;
+    background-color: #CD6BFF;
+}
+#button10 {
+    left: 904px;
+    top: 80px;
+    background-color: #689EF7;
+}
+#button11 {
+    left: 944px;
+    top: 80px;
+    background-color: #5EE82C;
+}
+#button12 {
+    left: 984px;
+    top: 80px;
+    background-color: #FFAD29;
+}
+#button13 {
+    left: 864px;
+    top: 120px;
+    background-color: #D88AFF;
+}
+#button14 {
+    left: 904px;
+    top: 120px;
+    background-color: #89B4FA;
+}
+#button15 {
+    left: 944px;
+    top: 120px;
+    background-color: #73FF40;
+}
+#button16 {
+    left: 984px;
+    top: 120px;
+    background-color: #EBE544;
+}
+.ranges {
+    position: fixed;
+    left: 864px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 20px;
+    -webkit-appearance: none !important;
+}
+#range1 {
+    top: 400px;
+    background-color: #FF8547;
+}
+#range2 {
+    top: 420px;
+    background-color: #FF7936;
+}
+#range3 {
+    top: 440px;
+    background-color: #FF6D24;
+}
+#range4 {
+    top: 460px;
+    background-color: #FF6112;
+}
+#range5 {
+    top: 480px;
+    background-color: #FF5500;
 }

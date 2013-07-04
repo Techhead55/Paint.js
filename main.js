@@ -6,9 +6,20 @@ var posit = [];
 var brushColour = "73FF40";
 var brushSize = "10";
 var back = "white";
-var colours = ["73FF40", "4089FF", "FF3636", "EBE544", "FF8D29", "C44FFF", "black", "white"];
+var colours = ["FF3636", "FF7C36", "FFAD29", "EBE544", "42A61E", "57D629", "5EE82C", "73FF40", "2D67C4", "4089FF", "689EF7", "89B4FA", "A944DB", "C44FFF", "CD6BFF", "D88AFF", "white", "black"];
+//red orangedark orangelight yellow darkgreen darkgreenlight green greenlight darkblue lightdarkblue darklightblue lightblue darkpurple lightdarkpurple darklightpurple lightpurple white black
+var mouse = false;
+var mode = "draw";
+var colour = new Object;
+colour.r=255;
+colour.g=255;
+colour.b=255;
+colour.opacity= 1;
+colour.export = function () {
+    brushColour = "rgba(" + colour.r + "," + colour.g + "," + colour.b + "," + colour.opacity+")";
+};
 function draw(x, y) {
-    if (y > 500) { }
+    if (y > canvas.height || x > canvas.width) { }
     else {
         context.beginPath();
         context.arc(x, y, brushSize, 0, 2 * Math.PI, false);
@@ -18,22 +29,21 @@ function draw(x, y) {
 }
 function colourSet(input) {
     brushColour = input;
+    mode = "draw";
+    document.getElementById('colourpicker').style.backgroundColor = input;
 }
 function reset() {
-    context.beginPath();
-    context.rect(0, 0, 1024, 500);
-    context.fillStyle = "rgba(255, 255, 255, 0.00)";
-    context.fill();
+    context.clearRect(0, 0, canvas.width, canvas.height);
 }
 function erase() {
-    brushColour = back;
+    mode = "erase";
 }
 function brushSet(input) {
     brushSize = input;
 }
 function backgroundColour(input) {
     context2.beginPath();
-    context2.rect(0, 0, 1024, 500);
+    context2.rect(0, 0, canvas2.width, canvas2.height);
     context2.fillStyle = input;
     context2.fill();
     back = input;
@@ -42,8 +52,36 @@ window.onmousemove = function (e) {
     e = e || window.event;
     posit[0] = e.clientX || e.pageX;
     posit[1] = e.clientY || e.pageY;
+    if (mouse === true) {
+        if (mode === "erase") {
+            context.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize*2, brushSize*2);
+        }
+        else {
+            draw(posit[0], posit[1]);
+        }
+    }
 };
 window.onmousedown = function (e) {
-    draw(posit[0], posit[1], 5);
-
+    mouse = true;
+    if (mode === "erase") {
+        context.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+    }
+    else {
+        draw(posit[0], posit[1]);
+    }
+};
+window.onmouseup = function (e) {
+    mouse = false;
+};
+window.touchstart = function (e) {
+    mouse = true;
+    if (mode === "erase") {
+        context.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+    }
+    else {
+        draw(posit[0], posit[1]);
+    }
+}
+window.touchend = function (e) {
+    mouse = false;
 };
