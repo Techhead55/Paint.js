@@ -3,13 +3,39 @@
     position: fixed;
     left: 0px;
     top: 0px;
+    background-color: white;
+}
+#canvas1{
+    position: fixed;
+    left: 0px;
+    top: 0px;
     background-color: rgba(255, 255, 255, 0.00);
 }
 #canvas2{
     position: fixed;
     left: 0px;
     top: 0px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas3{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas4{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+.select {
+    -webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
 }
 .button{
                 position: fixed;
@@ -109,6 +135,38 @@
     background-color: #52E31E;
     left: 944px;
     top: 320px;
+    width: 80px;
+}
+#m{
+    background-color: #EBC4FF;
+    left: 864px;
+    top: 360px;
+}
+#n{
+    background-color: #E6B3FF;
+    left: 904px;
+    top: 360px;
+}
+#o {
+    background-color: #E0A1FF;
+    left: 864px;
+    top: 400px;
+}
+#p {
+    background-color: #D88AFF;
+    left: 904px;
+    top: 400px;
+}
+#q {
+    background-color: #F5F2A6;
+    left: 944px;
+    top: 360px;
+    width: 80px;
+}
+#r {
+    background-color: #EBE544;
+    left: 944px;
+    top: 400px;
     width: 80px;
 }
 /*
@@ -258,11 +316,4 @@
 #range5 {
     top: 480px;
     background-color: #FF5500;
-}
-#export {
-    top: 440px;
-    left: 864px;
-    width: 160px;
-    height: 120px;
-    background: #5EE82C;
 }

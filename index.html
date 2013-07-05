@@ -5,10 +5,15 @@
         <link type="text/css" rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <canvas id="canvas2" width="864px" height="560px"></canvas>
-        <canvas id="canvas" width="864px" height="560px"></canvas>
+        <!-- Canvas's -->
+        <canvas id="canvas" class="select" width="864px" height="560px"></canvas>
+        <canvas id="canvas1" class="select" width="864px" height="560px"></canvas>
+        <canvas id="canvas2" class="select" width="864px" height="560px"></canvas>
+        <canvas id="canvas3" class="select" width="864px" height="560px"></canvas>
+        <canvas id="canvas4" class="select" width="864px" height="560px"></canvas>
+        <canvas id="canvasS" class="select" width="864px" height="560px"></canvas>
         <script src="main.js"></script>
-        <div id="output"></div>
+        <!-- Colour Palette -->
         <button id="button1" class="button" onclick="colourSet(colours[12])"></button>
         <button id="button2" class="button" onclick="colourSet(colours[8])"></button>
         <button id="button3" class="button" onclick="colourSet(colours[4])"></button>
@@ -25,19 +30,31 @@
         <button id="button14" class="button" onclick="colourSet(colours[11])"></button>
         <button id="button15" class="button" onclick="colourSet(colours[7])"></button>
         <button id="button16" class="button" onclick="colourSet(colours[3])"></button>
+        <!-- Reset & Eraser Button-->
         <button id="reset" onclick="reset()">Reset The Canvas</button>
         <button id="erase" onclick="erase()">Eraser</button>
+        <!-- Brush Size -->
         <button id="a" class="button" onclick="brushSet(5)">5px</button>
         <button id="b" class="button" onclick="brushSet(10)">10px</button>
         <button id="c" class="button" onclick="brushSet(15)">15px</button>
         <button id="d" class="button" onclick="brushSet(20)">20px</button>
         <button id="e" class="button" onclick="brushSet(25)">25px</button>
         <button id="f" class="button" onclick="brushSet(30)">30px</button>
+        <!-- Background Colour-->
         <button id="g" class="button" onclick="backgroundColour(colours[16])">Background</button>
         <button id="h" class="button" onclick="backgroundColour(colours[17])">Background</button>
+        <!-- Brushes & Brush Modes-->
         <button id="i" class="button" onclick="setDrawType(types[0])">Solid</button>
         <button id="j" class="button" onclick="setDrawType(20)">Spray</button>
         <button id="k" class="button" onclick="setShape(shapes[0])">Circle Brush</button>
         <button id="l" class="button" onclick="setShape(shapes[1])">Square Brush</button>
+        <!-- Layer Selection -->
+        <button id="m" class="button" onclick="setLayer(1)">Layer 1</button>
+        <button id="n" class="button" onclick="setLayer(2)">Layer 2</button>
+        <button id="o" class="button" onclick="setLayer(3)">Layer 3</button>
+        <button id="p" class="button" onclick="setLayer(4)">Layer 4</button>
+        <!-- Shape Selections -->
+        <button id="q" class="button" onclick="">Draw A Square</button>
+        <button id="r" class="button" onclick="">Draw A Circle</button>
     </body>
 </html>
