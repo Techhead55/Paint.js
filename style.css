@@ -1,4 +1,7 @@
-﻿body{background-color: #74AFF2;style="cursor:pointer";}
+﻿body{
+    background-color: #74AFF2;
+    style="cursor:pointer";
+}
 #canvas {
     position: fixed;
     left: 0px;

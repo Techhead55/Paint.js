@@ -3,7 +3,7 @@ var context = canvas.getContext('2d');
 var canvas1 = document.getElementById('canvas1');
 var context1 = canvas1.getContext('2d');
 var canvas2 = document.getElementById('canvas2');
-var context2 = canvas1.getContext('2d');
+var context2 = canvas2.getContext('2d');
 var canvas3 = document.getElementById('canvas3');
 var context3 = canvas1.getContext('2d');
 var canvas4 = document.getElementById('canvas4');
@@ -25,8 +25,9 @@ var types = ["fill", "grad"];
 var brushGrad;
 var shape = "circle";
 var shapes = ["circle", "square"];
-var layerSelected = 1;
+var layerSelected = context1;
 function setLayer(input) {
+    console.log(input); 
     layerSelected = input;
 }
 function setShape(input) {
@@ -48,36 +49,36 @@ function draw(x, y) {
     if (y > canvas1.height || x > canvas1.width) { }
     else if (drawType === "fill") {
         if (shape === "circle") {
-            context1.beginPath();
-            context1.arc(x, y, brushSize, 0, 2 * Math.PI, false);
-            context1.fillStyle = brushColour;
-            context1.fill();
+            layerSelected.beginPath();
+            layerSelected.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+            layerSelected.fillStyle = brushColour;
+            layerSelected.fill();
         }
         else {
-            context1.beginPath();
-            context1.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
-            context1.fillStyle = brushColour;
-            context1.fill();
+            layerSelected.beginPath();
+            layerSelected.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+            layerSelected.fillStyle = brushColour;
+            layerSelected.fill();
         }
     }
     else {
         if (shape === "circle") {
-            context1.beginPath();
-            context1.arc(x, y, brushSize, 0, 2 * Math.PI, false);
-            var grd = context1.createRadialGradient(x, y, brushSize / brushGrad, x, y, brushSize);
+            layerSelected.beginPath();
+            layerSelected.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+            var grd = layerSelected.createRadialGradient(x, y, brushSize / brushGrad, x, y, brushSize);
             grd.addColorStop(0, brushColour);
             grd.addColorStop(1, 'rgba(255,255,255,0)');
-            context1.fillStyle = grd;
-            context1.fill();
+            layerSelected.fillStyle = grd;
+            layerSelected.fill();
         }
         else {
-            context1.beginPath();
-            context1.rect(x - brushSize, y - brushSize, brushSize*2, brushSize*2);
-            var grd = context1.createRadialGradient(x, y, brushSize*2/ brushGrad,x-brushSize,y-brushSize,brushSize*2);
+            layerSelected.beginPath();
+            layerSelected.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+            var grd = layerSelected.createRadialGradient(x, y, brushSize * 2 / brushGrad, x - brushSize, y - brushSize, brushSize * 2);
             grd.addColorStop(0, brushColour);
             grd.addColorStop(1, 'rgba(255,255,255,0)')
-            context1.fillStyle = brushColour;
-            context1.fill();
+            layerSelected.fillStyle = grd;
+            layerSelected.fill();
         }
     }
 }
@@ -87,7 +88,7 @@ function colourSet(input) {
     document.getElementById('colourpicker').style.backgroundColor = input;
 }
 function reset() {
-    context1.clearRect(0, 0, canvas1.width, canvas1.height);
+    layerSelected.clearRect(0, 0, canvas1.width, canvas1.height);
 }
 function erase() {
     mode = "erase";
@@ -109,7 +110,9 @@ window.onmousemove = function (e) {
     if (mouse === true) {
         if (mode === "erase") {
             if (posit[1] > canvas1.height || posit[0] > canvas1.width) { }
-            else {context1.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize*2, brushSize*2);}
+            else {
+                layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+            }
         }
         else {
             draw(posit[0], posit[1]);
@@ -119,7 +122,7 @@ window.onmousemove = function (e) {
 window.onmousedown = function (e) {
     mouse = true;
     if (mode === "erase") {
-        context1.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+        layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
     }
     else {
         draw(posit[0], posit[1]);
