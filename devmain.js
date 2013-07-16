@@ -36,7 +36,7 @@ var shape = "circle";
 var shapes = ["circle", "square"];
 var layerSelected = context1;
 function setLayer(input) {
-    console.log(input);
+    console.log(input); 
     layerSelected = input;
 }
 function setShape(input) {
@@ -140,7 +140,7 @@ window.onmousedown = function (e) {
 window.onmouseup = function (e) {
     mouse = false;
 };
-window.onload = function (e) {
+window.onload = function(e) {
     resizeCanvas(canvas);
     resizeCanvas(canvas1);
     resizeCanvas(canvas2);

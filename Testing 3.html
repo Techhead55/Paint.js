@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #canvas {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <button id="line" onclick=""></button>
+    <button id="full" onclick=""></button>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var gridSpace = 10;
+        var colour = "#FC568E"
+        var posit = [];
+        var positSet = [100,100];
+        var setting= false;
+        window.addEventListener('resize', winUpdate, false);
+        function draw() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            function actDraw(x1,y1,x2,y2) {
+                context.beginPath();
+                context.moveTo(x1, y1);
+                context.lineTo(x2, y2);
+                context.strokeStyle = colour;
+                context.stroke();
+            }
+            actDraw(positSet[0], positSet[1], posit[0], positSet[1]);
+            actDraw(posit[0], positSet[1], posit[0], posit[1]);
+            actDraw(positSet[0], posit[1], posit[0], posit[1]);
+            actDraw(positSet[0], positSet[1], positSet[0], posit[1]);
+            
+        }
+        function winUpdate() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        function update() {
+            draw();
+        }
+        update();
+        window.onmousemove = function (e) {
+            e = e || window.event;
+            posit[0] = e.clientX || e.pageX;
+            posit[1] = e.clientY || e.pageY;
+            if (setting === true) {
+                update();
+            }
+        };
+        window.onmousedown = function (e) {
+            positSet[0] = posit[0];
+            positSet[1] = posit[1];
+            setting=true;
+        };
+        window.onmouseup = function (e) {
+            setting=false;
+        };
+
+    </script>
+</body>
+</html>
