@@ -1,23 +1,23 @@
 ﻿body{
     background-color: #74AFF2;
-    style="cursor:pointer";
+    /*cursor: pointer;*/
 }
 #canvas {
     position: fixed;
     left: 0px;
-    top: 0px;
+    top: 40px;
     background-color: white;
 }
 #canvas1{
     position: fixed;
     left: 0px;
-    top: 0px;
+    top: 40px;
     background-color: rgba(255, 255, 255, 0.00);
 }
 #canvas2{
     position: fixed;
     left: 0px;
-    top: 0px;
+    top: 40px;
     background-color: rgba(255, 255, 255, 0.00);
 }
 #canvas3{
@@ -40,149 +40,167 @@
 }
 .select {
     -webkit-touch-callout: none;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .button{
-                position: fixed;
-                left: 0px;
-                padding: 0px;
-                margin: 0px;
-                border: 0px;
-                width: 40px;
-                height: 40px;
-                color: white;
+    position: fixed;
+    right: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+#reset{
+    position: fixed;
+    top: 200px;
+    right: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 80px;
+    height: 40px;
+    background-color: #4DDEFF;
+    color: white;
+}
+#erase{
+    position: fixed;
+    top: 200px;
+    right: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 80px;
+    height: 40px;
+    background-color: #00D0FF;
+    color: white;
             }
-            #reset{
-                position: fixed;
-                top: 160px;
-                right: 80px;
-                padding: 0px;
-                margin: 0px;
-                border: 0px;
-                width: 80px;
-                height: 40px;
-                background-color: #4DDEFF;
-                color: white;
-            }
-            #erase{
-                position: fixed;
-                top: 160px;
-                right: 0px;
-                padding: 0px;
-                margin: 0px;
-                border: 0px;
-                width: 80px;
-                height: 40px;
-                background-color: #00D0FF;
-                color: white;
-            }
+/*5px*/
 #a{
-    background-color: #FF9159;
-    left: 944px;
-    top: 200px;
+    background-color: #FF9159; 
+    right: 40px;
+    top: 240px;
 }
- #b{
+/*10px*/
+#b{
     background-color: #FF8547;
-    left: 984px;
-    top: 200px;
+    right: 0px;
+    top: 240px;
 }
+/*15px*/
 #c{
     background-color: #FF7936;
-    left: 944px;
-    top: 240px;
+    right: 40px;
+    top: 280px;
 }
+/*20px*/
 #d{
     background-color: #FF6D24;
-    left: 984px;
-    top: 240px;
+    right: 0px;
+    top: 280px;
 }
+/*25px*/
 #e {
     background-color: #FF6112;
-    left: 944px;
-    top: 280px;
+    right: 40px;
+    top: 320px;
 }
+/*30px*/
 #f {
     background-color: #FF5500;
-    left: 984px;
-    top: 280px;
+    right: 0px;
+    top: 320px;
 }
+/*white back*/
 #g{
     background-color: white;
-    left: 864px;
-    top: 200px;
+    right: 80px;
+    top: 240px;
     width: 80px;
     color: black;
 }
+/*black back*/
 #h{
     background-color: black;
-    left: 864px;
-    top: 240px;
+    right: 80px;
+    top: 280px;
     width: 80px;
     color: white;
 }
+/*solid mode*/
 #i {
     background-color: #7291C4;
-    left: 864px;
-    top: 280px;
+    right: 120px;
+    top: 320px;
 }
+/*spray mode*/
 #j {
     background-color: #6489C4;
-    left: 904px;
-    top: 280px;
+    right: 80px;
+    top: 320px;
 }
+/*Circle Brush*/
 #k {
     background-color: #90E670;
-    left: 864px;
-    top: 320px;
+    right: 80px;
+    top: 360px;
     width: 80px;
 }
+/*Square Brush*/
 #l {
     background-color: #52E31E;
-    left: 944px;
-    top: 320px;
+    right: 0px;
+    top: 360px;
     width: 80px;
 }
+/*LAY 1*/
 #m{
     background-color: #EBC4FF;
-    left: 864px;
-    top: 360px;
+    right: 40px;
+    top: 400px;
 }
+/*LAY 2*/
 #n{
     background-color: #E6B3FF;
-    left: 904px;
-    top: 360px;
+    right: 0px;
+    top: 400px;
 }
+/*LAY 3*/
 #o {
     background-color: #E0A1FF;
-    left: 864px;
-    top: 400px;
+    right: 40px;
+    top: 440px;
 }
+/*LAY 4*/
 #p {
     background-color: #D88AFF;
-    left: 904px;
-    top: 400px;
+    right: 0px;
+    top: 440px;
 }
+/*Draw a SQUARE*/
 #q {
     background-color: #F5F2A6;
-    left: 944px;
-    top: 360px;
+    right: 80px;
+    top: 400px;
     width: 80px;
 }
+/*Draw a CIRCLE*/
 #r {
     background-color: #EBE544;
-    left: 944px;
-    top: 400px;
+    right: 80px;
+    top: 440px;
     width: 80px;
 }
 /*
 #colourpicker {
     position: fixed;
     top: 0px;
-    left: 1024px;
+    right: 1024px;
     padding: 0px;
     margin: 0px;
     border: 0px;
@@ -194,7 +212,7 @@ user-select: none;
 #set {
     position: fixed;
     top: 140px;
-    left: 1024px;
+    right: 1024px;
     padding: 0px;
     margin: 0px;
     border: 0px;
@@ -208,7 +226,7 @@ user-select: none;
 #specific {
     position: fixed;
     top: 280px;
-    left: 864px;
+    right: 864px;
     padding: 0px;
     margin: 0px;
     border: 0px;
@@ -216,89 +234,105 @@ user-select: none;
     height: 220px;
     background-color: #F7E83E;
 }
+/*DARK PURPLE*/
 #button1 {
-    left: 864px;
-    top: 0px;
+    right: 120px;
+    top: 40px;
     background-color: #A944DB;
 }
+/*DARK BLUE*/
 #button2 {
-    left: 904px;
-    top: 0px;
+    right: 80px;
+    top: 40px;
     background-color: #2D67C4;
 }
+/*DARK GREEN*/
 #button3 {
-    left: 944px;
-    top: 0px;
+    right: 40px;
+    top: 40px;
     background-color: #42A61E;
 }
+/*RED*/
 #button4 {
-    left: 984px;
-    top: 0px;
+    right: 0px;
+    top: 40px;
     background-color:#FF3636;
 }
+/*PURPLE*/
 #button5 {
-    left: 864px;
-    top: 40px;
+    right: 120px;
+    top: 80px;
     background-color: #C44FFF;
 }
+/*BLUE*/
 #button6 {
-    left: 904px;
-    top: 40px;
+    right: 80px;
+    top: 80px;
     background-color: #4089FF;
 }
+/*GREEN*/
 #button7 {
-    left: 944px;
-    top: 40px;
+    right: 40px;
+    top: 80px;
     background-color: #57D629;
 }
+/*ORANGE*/
 #button8 {
-    left: 984px;
-    top: 40px;
+    right: 0px;
+    top: 80px;
     background-color: #FF7C36;
 }
+/*LIGHT PURPLE*/
 #button9 {
-    left: 864px;
-    top: 80px;
+    right: 120px;
+    top: 120px;
     background-color: #CD6BFF;
 }
+/*LIGHT BLUE*/
 #button10 {
-    left: 904px;
-    top: 80px;
+    right: 80px;
+    top: 120px;
     background-color: #689EF7;
 }
+/*LIGHT GREEN*/
 #button11 {
-    left: 944px;
-    top: 80px;
+    right: 40px;
+    top: 120px;
     background-color: #5EE82C;
 }
+/*LIGHT ORANGE*/
 #button12 {
-    left: 984px;
-    top: 80px;
+    right: 0px;
+    top: 120px;
     background-color: #FFAD29;
 }
+/*PALE PURPLE*/
 #button13 {
-    left: 864px;
-    top: 120px;
+    right: 120px;
+    top: 160px;
     background-color: #D88AFF;
 }
+/*PALE BLUE*/
 #button14 {
-    left: 904px;
-    top: 120px;
+    right: 80px;
+    top: 160px;
     background-color: #89B4FA;
 }
+/*LIME GREEN*/
 #button15 {
-    left: 944px;
-    top: 120px;
+    right: 40px;
+    top: 160px;
     background-color: #73FF40;
 }
+/*YELLOW*/
 #button16 {
-    left: 984px;
-    top: 120px;
+    right: 0px;
+    top: 160px;
     background-color: #EBE544;
 }
 .ranges {
     position: fixed;
-    left: 864px;
+    right: 864px;
     padding: 0px;
     margin: 0px;
     border: 0px;

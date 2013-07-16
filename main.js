@@ -15,7 +15,7 @@ var context5 = canvas1.getContext('2d');
 //resize
 function resizeCanvas(input) {
     input.width = document.width - 160;
-    input.height = document.height;
+    input.height = document.height - 40;
 }
 window.addEventListener('resize', winUpdate, false);
 
@@ -115,7 +115,7 @@ function backgroundColour(input) {
 window.onmousemove = function (e) {
     e = e || window.event;
     posit[0] = e.clientX || e.pageX;
-    posit[1] = e.clientY || e.pageY;
+    posit[1] = e.clientY - 40|| e.pageY - 40;
     if (mouse === true) {
         if (mode === "erase") {
             if (posit[1] > canvas.height || posit[0] > canvas.width) { }
