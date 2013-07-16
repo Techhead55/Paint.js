@@ -2,6 +2,11 @@
     background-color: #9FD3DA;
     /*cursor: pointer;*/
 }
+* {
+    color: white;
+    text-align: center;
+    font-family: 'Fauna One', serif;
+}
 /*TITLE*/
 #title {
     position: fixed;
@@ -60,7 +65,7 @@
     user-select: none;
 }
 .button{
-    position: fixed;
+    position: absolute;
     right: 0px;
     padding: 0px;
     margin: 0px;
@@ -70,7 +75,7 @@
     color: white;
 }
 #reset{
-    position: fixed;
+    position: absolute;
     top: 200px;
     right: 80px;
     padding: 0px;
@@ -82,7 +87,7 @@
     color: white;
 }
 #erase{
-    position: fixed;
+    position: absolute;
     top: 200px;
     right: 0px;
     padding: 0px;
@@ -92,7 +97,20 @@
     height: 40px;
     background-color: #00D0FF;
     color: white;
-            }
+}
+/*SIZE*/
+#size {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 480px;
+    right: 0px;
+    height: 40px;
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
 /*5px*/
 #a{
     background-color: #FF9159; 
@@ -211,7 +229,7 @@
 }
 /*
 #colourpicker {
-    position: fixed;
+    position: absolute;
     top: 0px;
     right: 1024px;
     padding: 0px;
@@ -223,7 +241,7 @@
     color: white;
 }
 #set {
-    position: fixed;
+    position: absolute;
     top: 140px;
     right: 1024px;
     padding: 0px;
@@ -237,7 +255,7 @@
 }
     */
 #specific {
-    position: fixed;
+    position: absolute;
     top: 280px;
     right: 864px;
     padding: 0px;
@@ -344,7 +362,7 @@
     background-color: #EBE544;
 }
 .ranges {
-    position: fixed;
+    position: absolute;
     right: 864px;
     padding: 0px;
     margin: 0px;

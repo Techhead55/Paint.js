@@ -83,7 +83,7 @@ function draw(x, y) {
         else {
             layerSelected.beginPath();
             layerSelected.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
-            var grd = layerSelected.createRadialGradient(x, y, brushSize * 2 / brushGrad, x - brushSize, y - brushSize, brushSize * 2);
+            var grd = layerSelected.createRadialGradient(x, y, brushSize * 2 / brushGrad, x , y , brushSize * 2);
             grd.addColorStop(0, brushColour);
             grd.addColorStop(1, 'rgba(255,255,255,0)')
             layerSelected.fillStyle = grd;
@@ -118,7 +118,7 @@ window.onmousemove = function (e) {
     posit[1] = e.clientY - 40|| e.pageY - 40;
     if (mouse === true) {
         if (mode === "erase") {
-            if (posit[1] > canvas.height || posit[0] > canvas.width || posit[1] <= 40) { }
+            if (posit[1] > canvas.height || posit[0] > canvas.width || posit[1] <= 0) { }
             else {
                 layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
             }
@@ -131,7 +131,10 @@ window.onmousemove = function (e) {
 window.onmousedown = function (e) {
     mouse = true;
     if (mode === "erase") {
-        layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+        if (posit[1] > canvas.height || posit[0] > canvas.width || posit[1] <= 0) { }
+        else {
+            layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+        } 
     }
     else {
         draw(posit[0], posit[1]);
@@ -156,5 +159,31 @@ function winUpdate() {
     resizeCanvas(canvas4);
     resizeCanvas(canvas5);
 }
-
-
+document.addEventListener('touchmove', function (event) {
+    e = e || window.event;
+    posit[0] = e.clientX || e.pageX;
+    posit[1] = e.clientY - 40 || e.pageY - 40;
+    if (mouse === true) {
+        if (mode === "erase") {
+            if (y <= 0 || x > canvas.width) { }
+            else {
+                layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+            }
+        }
+        else {
+            draw(posit[0], posit[1]);
+        }
+    }
+}, false);
+document.addEventListener('touchstart', function (event) {
+    mouse = true;
+    if (mode === "erase") {
+        layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+    }
+    else {
+        draw(posit[0], posit[1]);
+    }
+}, false);
+document.addEventListener('touchend', function (event) {
+    mouse = false;
+}, false);

@@ -11,8 +11,7 @@
 
     </head>
     <body>
-        <!-- Title-->
-        <div id="title">Paint.JS</div>
+        
 
         <!-- Canvas's -->
         <canvas id="canvas" class="select"></canvas>
@@ -65,6 +64,16 @@
         <!-- Shape Selections -->
         <button id="q" class="button" onclick="">Draw A Square</button>
         <button id="r" class="button" onclick="">Draw A Circle</button>
+
+        <!-- size slider-->
+        <div>
+            <div></div>
+            <input type="range" id="size" min="5" max="80" onchange="brushSet(this.value);">
+        </div>
+        
+
+        <!-- Title-->
+        <div id="title">Paint.JS</div>
 
         <!-- Script -->
         <script src="main.js"></script>
