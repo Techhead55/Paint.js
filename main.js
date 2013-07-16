@@ -55,7 +55,7 @@ function setShape(input) {
     shape = input;
 }
 function draw(x, y) {
-    if (y > canvas.height || x > canvas.width) { }
+    if (y <= 0 || x > canvas.width) { }
     else if (drawType === "fill") {
         if (shape === "circle") {
             layerSelected.beginPath();
@@ -118,7 +118,7 @@ window.onmousemove = function (e) {
     posit[1] = e.clientY - 40|| e.pageY - 40;
     if (mouse === true) {
         if (mode === "erase") {
-            if (posit[1] > canvas.height || posit[0] > canvas.width) { }
+            if (posit[1] > canvas.height || posit[0] > canvas.width || posit[1] <= 40) { }
             else {
                 layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
             }
