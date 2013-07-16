@@ -25,7 +25,7 @@
         <button id="button1" class="button" onclick="colourSet(colours[12])"></button>
         <button id="button2" class="button" onclick="colourSet(colours[8])"></button>
         <button id="button3" class="button" onclick="colourSet(colours[4])"></button>
-        <button id="button4" class="button" onclick="colourSet(colours[0])"></button>
+        <button id="button4" class="button" onclick="colourSet(255, 54, 54, o)"></button>
         <button id="button5" class="button" onclick="colourSet(colours[13])"></button>
         <button id="button6" class="button" onclick="colourSet(colours[9])"></button>
         <button id="button7" class="button" onclick="colourSet(colours[5])"></button>
@@ -71,7 +71,27 @@
         <!-- size slider-->
         <div id="sizeDisplay"></div>
         <div id="size"></div>
-        <input type="range" id="size" min="5" max="80" onchange="brushSet(this.value);">
+        <input type="range" id="size" min="5" max="80" value="10" onchange="brushSet(this.value);">
+
+        <!-- R -->
+        <div id="rcolDisplay"></div>
+        <div id="rcol"></div>
+        <input type="range" id="rcol" min="5" max="255" onchange="colourSet(this.value,g,b,o);">
+
+        <!-- G -->
+        <div id="gcolDisplay"></div>
+        <div id="gcol"></div>
+        <input type="range" id="gcol" min="5" max="255" onchange="colourSet(r,this.value,b,o);">
+
+        <!-- B -->
+        <div id="bcolDisplay"></div>
+        <div id="bcol"></div>
+        <input type="range" id="bcol" min="5" max="255" onchange="colourSet(r,g,this.value,o);">
+
+        <!-- O -->
+        <div id="ocolDisplay"></div>
+        <div id="ocol"></div>
+        <input type="range" id="ocol" min="1" max="100" value="100" onchange="colourSet(r,g,b,this.value);">
 
         
 

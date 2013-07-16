@@ -16,6 +16,11 @@ var context5 = canvas5.getContext('2d');
 var canvas6 = document.getElementById('brushDisplay');
 var context6 = canvas6.getContext('2d');
 
+// Colours
+var r = 100,
+    g = 100,
+    b = 100,
+    o = 100;
 //resize
 function resizeCanvas(input) {
     input.width = document.width - 160;
@@ -95,10 +100,14 @@ function draw(x, y) {
         }
     }
 }
-function colourSet(input) {
-    brushColour = input;
+function colourSet(inr, ing, inb, ino) {
+    r = inr;
+    g = ing;
+    b = inb;
+    o = ino/100;
+    display(canvas6.width / 2, canvas6.height / 2);
+    brushColour = "rgba("+r+","+g+","+b+","+o+")";
     mode = "draw";
-    document.getElementById('colourpicker').style.backgroundColor = input;
 }
 function reset() {
     layerSelected.clearRect(0, 0, canvas.width, canvas.height);
@@ -108,7 +117,8 @@ function erase() {
 }
 function brushSet(input) {
     brushSize = input;
-    document.getElementById("brushDisplay").innerHTML = brushSize;
+    document.getElementById("brushDisplay").innerHTML = brushSize + "";
+    display(canvas6.width / 2, canvas6.height / 2);
 }
 function backgroundColour(input) {
     context.beginPath();
