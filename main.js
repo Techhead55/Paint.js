@@ -6,11 +6,15 @@ var context1 = canvas1.getContext('2d');
 var canvas2 = document.getElementById('canvas2');
 var context2 = canvas2.getContext('2d');
 var canvas3 = document.getElementById('canvas3');
-var context3 = canvas1.getContext('2d');
+var context3 = canvas3.getContext('2d');
 var canvas4 = document.getElementById('canvas4');
-var context4 = canvas1.getContext('2d');
+var context4 = canvas4.getContext('2d');
+/*
 var canvas5 = document.getElementById('canvas5');
-var context5 = canvas1.getContext('2d');
+var context5 = canvas5.getContext('2d');
+*/
+var canvas6 = document.getElementById('brushDisplay');
+var context6 = canvas6.getContext('2d');
 
 //resize
 function resizeCanvas(input) {
@@ -104,6 +108,7 @@ function erase() {
 }
 function brushSet(input) {
     brushSize = input;
+    document.getElementById("brushDisplay").innerHTML = brushSize;
 }
 function backgroundColour(input) {
     context.beginPath();
@@ -127,6 +132,7 @@ window.onmousemove = function (e) {
             draw(posit[0], posit[1]);
         }
     }
+    display(canvas6.width / 2, canvas6.height / 2);
 };
 window.onmousedown = function (e) {
     mouse = true;
@@ -143,6 +149,7 @@ window.onmousedown = function (e) {
 window.onmouseup = function (e) {
     mouse = false;
 };
+
 window.onload = function (e) {
     resizeCanvas(canvas);
     resizeCanvas(canvas1);
@@ -159,31 +166,46 @@ function winUpdate() {
     resizeCanvas(canvas4);
     resizeCanvas(canvas5);
 }
-document.addEventListener('touchmove', function (event) {
-    e = e || window.event;
-    posit[0] = e.clientX || e.pageX;
-    posit[1] = e.clientY - 40 || e.pageY - 40;
-    if (mouse === true) {
-        if (mode === "erase") {
-            if (y <= 0 || x > canvas.width) { }
-            else {
-                layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
-            }
+
+
+
+
+//DISPLAY
+function display(x, y) {
+    context6.clearRect(0, 0, canvas.width, canvas.height);
+    if (drawType === "fill") {
+        if (shape === "circle") {
+            context6.beginPath();
+            context6.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+            context6.fillStyle = brushColour;
+            context6.fill();
         }
         else {
-            draw(posit[0], posit[1]);
+            context6.beginPath();
+            context6.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+            context6.fillStyle = brushColour;
+            context6.fill();
         }
     }
-}, false);
-document.addEventListener('touchstart', function (event) {
-    mouse = true;
-    if (mode === "erase") {
-        layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
-    }
     else {
-        draw(posit[0], posit[1]);
+        if (shape === "circle") {
+            context6.beginPath();
+            context6.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+            var grd = context6.createRadialGradient(x, y, brushSize / brushGrad, x, y, brushSize);
+            grd.addColorStop(0, brushColour);
+            grd.addColorStop(1, 'rgba(255,255,255,0)');
+            context6.fillStyle = grd;
+            context6.fill();
+        }
+        else {
+            context6.beginPath();
+            context6.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+            var grd = context6.createRadialGradient(x, y, brushSize * 2 / brushGrad, x, y, brushSize * 2);
+            grd.addColorStop(0, brushColour);
+            grd.addColorStop(1, 'rgba(255,255,255,0)')
+            context6.fillStyle = grd;
+            context6.fill();
+        }
     }
-}, false);
-document.addEventListener('touchend', function (event) {
-    mouse = false;
-}, false);
+}
+display(canvas6.width / 2, canvas6.height / 2);

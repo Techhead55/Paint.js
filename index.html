@@ -65,11 +65,14 @@
         <button id="q" class="button" onclick="">Draw A Square</button>
         <button id="r" class="button" onclick="">Draw A Circle</button>
 
+        <!-- Brush display -->
+        <canvas id="brushDisplay" height="160" width="160"></canvas>
+
         <!-- size slider-->
-        <div>
-            <div></div>
-            <input type="range" id="size" min="5" max="80" onchange="brushSet(this.value);">
-        </div>
+        <div id="sizeDisplay"></div>
+        <div id="size"></div>
+        <input type="range" id="size" min="5" max="80" onchange="brushSet(this.value);">
+
         
 
         <!-- Title-->

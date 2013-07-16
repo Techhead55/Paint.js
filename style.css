@@ -98,11 +98,14 @@
     background-color: #00D0FF;
     color: white;
 }
+
+
+
 /*SIZE*/
 #size {
     position: absolute;
-    background-color: #FF9159; 
-    top: 480px;
+    background-color: #FF6D24; 
+    top: 640px;
     right: 0px;
     height: 40px;
     width: 80px;
@@ -110,6 +113,23 @@
     margin: 0px;
     border: 0px;
 }
+#sizeDisplay {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 640px;
+    right: 80px;
+    height: 40px;
+    width: 80px;
+}
+#brushDisplay {
+    position: absolute;
+    background-color: #FFF8DC; 
+    top: 480px;
+    right: 0px;
+}
+
+
+
 
 /*5px*/
 #a{
@@ -215,7 +235,7 @@
 }
 /*Draw a SQUARE*/
 #q {
-    background-color: #F5F2A6;
+    background-color: #FAF687;
     right: 80px;
     top: 400px;
     width: 80px;
