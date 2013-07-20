@@ -9,10 +9,8 @@ var canvas3 = document.getElementById('canvas3');
 var context3 = canvas3.getContext('2d');
 var canvas4 = document.getElementById('canvas4');
 var context4 = canvas4.getContext('2d');
-/*
 var canvas5 = document.getElementById('canvas5');
-var context5 = canvas5.getContext('2d');
-*/
+var context5 = canvas4.getContext('2d');
 var canvas6 = document.getElementById('brushDisplay');
 var context6 = canvas6.getContext('2d');
 
@@ -105,8 +103,8 @@ function colourSet(inr, ing, inb, ino) {
     g = ing;
     b = inb;
     o = ino/100;
+    brushColour = "rgba(" + r + "," + g + "," + b + "," + o + ")";
     display(canvas6.width / 2, canvas6.height / 2);
-    brushColour = "rgba("+r+","+g+","+b+","+o+")";
     mode = "draw";
 }
 function reset() {
