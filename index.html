@@ -22,22 +22,22 @@
         <canvas id="canvas5" class="select"></canvas>
         
         <!-- Colour Palette -->
-        <button id="button1" class="button" onclick="colourSet(colours[12])"></button>
-        <button id="button2" class="button" onclick="colourSet(colours[8])"></button>
+        <button id="button1" class="button" onclick="colourSet(169, 68, 219)"></button>
+        <button id="button2" class="button" onclick="colourSet(45, 103, 196)"></button>
         <button id="button3" class="button" onclick="colourSet(66, 166, 30)"></button>
         <button id="button4" class="button" onclick="colourSet(255, 54, 54)"></button>
-        <button id="button5" class="button" onclick="colourSet(colours[13])"></button>
-        <button id="button6" class="button" onclick="colourSet(colours[9])"></button>
-        <button id="button7" class="button" onclick="colourSet(colours[5])"></button>
-        <button id="button8" class="button" onclick="colourSet(colours[1])"></button>
-        <button id="button9" class="button" onclick="colourSet(colours[14])"></button>
-        <button id="button10" class="button" onclick="colourSet(colours[10])"></button>
-        <button id="button11" class="button" onclick="colourSet(colours[6])"></button>
-        <button id="button12" class="button" onclick="colourSet(colours[2])"></button>
-        <button id="button13" class="button" onclick="colourSet(colours[15])"></button>
-        <button id="button14" class="button" onclick="colourSet(colours[11])"></button>
-        <button id="button15" class="button" onclick="colourSet(colours[7])"></button>
-        <button id="button16" class="button" onclick="colourSet(colours[3])"></button>
+        <button id="button5" class="button" onclick="colourSet(196, 79, 255)"></button>
+        <button id="button6" class="button" onclick="colourSet(64, 137, 255)"></button>
+        <button id="button7" class="button" onclick="colourSet(87, 214, 41)"></button>
+        <button id="button8" class="button" onclick="colourSet(255, 124, 54)"></button>
+        <button id="button9" class="button" onclick="colourSet(205, 107, 255)"></button>
+        <button id="button10" class="button" onclick="colourSet(104, 158, 247)"></button>
+        <button id="button11" class="button" onclick="colourSet(94, 232, 44)"></button>
+        <button id="button12" class="button" onclick="colourSet(255, 173, 41)"></button>
+        <button id="button13" class="button" onclick="colourSet(216, 138, 255)"></button>
+        <button id="button14" class="button" onclick="colourSet(137, 180, 250)"></button>
+        <button id="button15" class="button" onclick="colourSet(115, 255, 64)"></button>
+        <button id="button16" class="button" onclick="colourSet(235, 229, 68)"></button>
         <!-- Reset & Eraser Button-->
         <button id="reset" onclick="reset()">Reset The Canvas</button>
         <button id="erase" onclick="erase()">Eraser</button>
@@ -69,24 +69,24 @@
         <canvas id="brushDisplay" height="160" width="160"></canvas>
 
         <!-- size slider-->
-        <div id="sizeDisplay">10</div>
+        <div id="sizeDisplay">30</div>
         <div id="size"></div>
-        <input type="range" id="size" min="5" max="80" value="10" onchange="brushSet(this.value);">
+        <input type="range" id="size" min="5" max="80" value="30" onchange="brushSet(this.value);">
 
         <!-- R -->
-        <div id="rcolDisplay">255</div>
+        <div id="rcolDisplay">115</div>
         <div id="rcol"></div>
-        <input type="range" id="rcol" min="5" max="255" value="255" onchange="colourSet(this.value,g,b);">
+        <input type="range" id="rcol" min="5" max="255" value="115" onchange="colourSet(this.value,g,b);">
 
         <!-- G -->
-        <div id="gcolDisplay">54</div>
+        <div id="gcolDisplay">255</div>
         <div id="gcol"></div>
-        <input type="range" id="gcol" min="5" max="255" value="54" onchange="colourSet(r,this.value,b);">
+        <input type="range" id="gcol" min="5" max="255" value="255" onchange="colourSet(r,this.value,b);">
 
         <!-- B -->
-        <div id="bcolDisplay">54</div>
+        <div id="bcolDisplay">64</div>
         <div id="bcol"></div>
-        <input type="range" id="bcol" min="5" max="255" value="54" onchange="colourSet(r,g,this.value);">
+        <input type="range" id="bcol" min="5" max="255" value="64" onchange="colourSet(r,g,this.value);">
 
         <!-- O -->
         <div id="ocolDisplay">1</div>

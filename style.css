@@ -6,6 +6,7 @@
     color: white;
     text-align: center;
     font-family: 'Fauna One', serif;
+    line-height: 40px;
 }
 /*TITLE*/
 #title {
@@ -296,24 +297,28 @@
     background-color: #EBC4FF;
     right: 40px;
     top: 400px;
+    line-height: 16px;
 }
 /*LAY 2*/
 #n{
     background-color: #E6B3FF;
     right: 0px;
     top: 400px;
+    line-height: 16px;
 }
 /*LAY 3*/
 #o {
     background-color: #E0A1FF;
     right: 40px;
     top: 440px;
+    line-height: 16px;
 }
 /*LAY 4*/
 #p {
     background-color: #D88AFF;
     right: 0px;
     top: 440px;
+    line-height: 16px;
 }
 /*Draw a SQUARE*/
 #q {
@@ -321,6 +326,7 @@
     right: 80px;
     top: 400px;
     width: 80px;
+    line-height: 16px;
 }
 /*Draw a CIRCLE*/
 #r {
@@ -328,6 +334,7 @@
     right: 80px;
     top: 440px;
     width: 80px;
+    line-height: 16px;
 }
 /*
 #colourpicker {

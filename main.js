@@ -15,9 +15,9 @@ var canvas6 = document.getElementById('brushDisplay');
 var context6 = canvas6.getContext('2d');
 
 // Colours
-var r = 255,
-    g = 54,
-    b = 54,
+var r = 115,
+    g = 255,
+    b = 64,
     o = 100;
 //resize
 function resizeCanvas(input) {
@@ -29,7 +29,7 @@ window.addEventListener('resize', winUpdate, false);
 //global var's
 var posit = [];
 var brushColour = "rgba("+r+","+g+","+b+","+o+")";
-var brushSize = "10";
+var brushSize = "30";
 var back = "white";
 var colours = ["FF3636", "FF7C36", "FFAD29", "EBE544", "42A61E", "57D629", "5EE82C", "73FF40", "2D67C4", "4089FF", "689EF7", "89B4FA", "A944DB", "C44FFF", "CD6BFF", "D88AFF", "white", "black"];
 //red orangedark orangelight yellow darkgreen darkgreenlight green greenlight darkblue lightdarkblue darklightblue lightblue darkpurple lightdarkpurple darklightpurple lightpurple white black
