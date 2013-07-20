@@ -24,8 +24,8 @@
         <!-- Colour Palette -->
         <button id="button1" class="button" onclick="colourSet(colours[12])"></button>
         <button id="button2" class="button" onclick="colourSet(colours[8])"></button>
-        <button id="button3" class="button" onclick="colourSet(colours[4])"></button>
-        <button id="button4" class="button" onclick="colourSet(255, 54, 54, o)"></button>
+        <button id="button3" class="button" onclick="colourSet(66, 166, 30)"></button>
+        <button id="button4" class="button" onclick="colourSet(255, 54, 54)"></button>
         <button id="button5" class="button" onclick="colourSet(colours[13])"></button>
         <button id="button6" class="button" onclick="colourSet(colours[9])"></button>
         <button id="button7" class="button" onclick="colourSet(colours[5])"></button>
@@ -69,29 +69,29 @@
         <canvas id="brushDisplay" height="160" width="160"></canvas>
 
         <!-- size slider-->
-        <div id="sizeDisplay"></div>
+        <div id="sizeDisplay">10</div>
         <div id="size"></div>
         <input type="range" id="size" min="5" max="80" value="10" onchange="brushSet(this.value);">
 
         <!-- R -->
-        <div id="rcolDisplay"></div>
+        <div id="rcolDisplay">255</div>
         <div id="rcol"></div>
-        <input type="range" id="rcol" min="5" max="255" onchange="colourSet(this.value,g,b,o);">
+        <input type="range" id="rcol" min="5" max="255" value="255" onchange="colourSet(this.value,g,b);">
 
         <!-- G -->
-        <div id="gcolDisplay"></div>
+        <div id="gcolDisplay">54</div>
         <div id="gcol"></div>
-        <input type="range" id="gcol" min="5" max="255" onchange="colourSet(r,this.value,b,o);">
+        <input type="range" id="gcol" min="5" max="255" value="54" onchange="colourSet(r,this.value,b);">
 
         <!-- B -->
-        <div id="bcolDisplay"></div>
+        <div id="bcolDisplay">54</div>
         <div id="bcol"></div>
-        <input type="range" id="bcol" min="5" max="255" onchange="colourSet(r,g,this.value,o);">
+        <input type="range" id="bcol" min="5" max="255" value="54" onchange="colourSet(r,g,this.value);">
 
         <!-- O -->
-        <div id="ocolDisplay"></div>
+        <div id="ocolDisplay">1</div>
         <div id="ocol"></div>
-        <input type="range" id="ocol" min="1" max="100" value="100" onchange="colourSet(r,g,b,this.value);">
+        <input type="range" id="ocol" min="1" max="100" value="100" onchange="opacSet(this.value);">
 
         
 

@@ -15,9 +15,9 @@ var canvas6 = document.getElementById('brushDisplay');
 var context6 = canvas6.getContext('2d');
 
 // Colours
-var r = 100,
-    g = 100,
-    b = 100,
+var r = 255,
+    g = 54,
+    b = 54,
     o = 100;
 //resize
 function resizeCanvas(input) {
@@ -28,7 +28,7 @@ window.addEventListener('resize', winUpdate, false);
 
 //global var's
 var posit = [];
-var brushColour = "73FF40";
+var brushColour = "rgba("+r+","+g+","+b+","+o+")";
 var brushSize = "10";
 var back = "white";
 var colours = ["FF3636", "FF7C36", "FFAD29", "EBE544", "42A61E", "57D629", "5EE82C", "73FF40", "2D67C4", "4089FF", "689EF7", "89B4FA", "A944DB", "C44FFF", "CD6BFF", "D88AFF", "white", "black"];
@@ -98,12 +98,21 @@ function draw(x, y) {
         }
     }
 }
-function colourSet(inr, ing, inb, ino) {
+function colourSet(inr, ing, inb) {
     r = inr;
     g = ing;
     b = inb;
-    o = ino/100;
+    document.getElementById('rcolDisplay').innerHTML = r;
+    document.getElementById('gcolDisplay').innerHTML = g;
+    document.getElementById('bcolDisplay').innerHTML = b;
     brushColour = "rgba(" + r + "," + g + "," + b + "," + o + ")";
+    display(canvas6.width / 2, canvas6.height / 2);
+    mode = "draw";
+}
+function opacSet(input) {
+    o = input / 100;
+    brushColour = "rgba(" + r + "," + g + "," + b + "," + o + ")";
+    document.getElementById('ocolDisplay').innerHTML = o;
     display(canvas6.width / 2, canvas6.height / 2);
     mode = "draw";
 }
@@ -115,7 +124,7 @@ function erase() {
 }
 function brushSet(input) {
     brushSize = input;
-    document.getElementById("brushDisplay").innerHTML = brushSize + "";
+    document.getElementById("sizeDisplay").innerHTML = brushSize;
     display(canvas6.width / 2, canvas6.height / 2);
 }
 function backgroundColour(input) {
