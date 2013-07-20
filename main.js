@@ -136,7 +136,7 @@ function backgroundColour(input) {
 }
 window.onmousemove = function (e) {
     e = e || window.event;
-    posit[0] = e.clientX || e.pageX;
+    posit[0] = e.clientX - 0 || e.pageX - 0;
     posit[1] = e.clientY - 40|| e.pageY - 40;
     if (mouse === true) {
         if (mode === "erase") {
