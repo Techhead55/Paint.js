@@ -226,3 +226,21 @@ function display(x, y) {
     }
 }
 display(canvas6.width / 2, canvas6.height / 2);
+
+
+
+function Shapedraw() {
+    context5.clearRect(0, 0, canvas.width, canvas.height);
+    if (shape === "circle") {
+        context5.beginPath();
+        context5.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+        context5.fillStyle = brushColour;
+        context5.fill();
+    }
+    else {
+        context5.beginPath();
+        context5.rect(positSet[0], positSet[1], posit[0] - positSet[0], posit[1] - positSet[1]);
+        context5.fillStyle = colour;
+        context5.fill();
+    }
+}

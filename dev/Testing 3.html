@@ -11,8 +11,8 @@
     </style>
 </head>
 <body>
-    <button id="line" onclick=""></button>
-    <button id="full" onclick=""></button>
+    <button id="line" onclick="shape='circle'" style="position: fixed; right: 0px;">CCC</button>
+    <button id="full" onclick="shape='square'" style="position: fixed; right: 0px; top: 40px;">SSS</button>
     <canvas id="canvas" width="800" height="800"></canvas>
     <script>
         var canvas = document.getElementById('canvas');
@@ -21,29 +21,30 @@
         var colour = "#FC568E"
         var posit = [];
         var positSet = [100,100];
-        var setting= false;
+        var setting = false;
+        var shape = "sq";
         window.addEventListener('resize', winUpdate, false);
-        function draw() {
+        function Shapedraw() {
             context.clearRect(0, 0, canvas.width, canvas.height);
-            function actDraw(x1,y1,x2,y2) {
+            if (shape === "circle") {
                 context.beginPath();
-                context.moveTo(x1, y1);
-                context.lineTo(x2, y2);
-                context.strokeStyle = colour;
-                context.stroke();
+                context.arc(positSet[0] - (positSet[0] - posit[0]), positSet[1], 40, 0, 2 * Math.PI, false);
+                context.fillStyle = colour;
+                context.fill();
             }
-            actDraw(positSet[0], positSet[1], posit[0], positSet[1]);
-            actDraw(posit[0], positSet[1], posit[0], posit[1]);
-            actDraw(positSet[0], posit[1], posit[0], posit[1]);
-            actDraw(positSet[0], positSet[1], positSet[0], posit[1]);
-            
+            else {
+                context.beginPath();
+                context.rect(positSet[0], positSet[1], posit[0] - positSet[0], posit[1] - positSet[1]);
+                context.fillStyle = colour;
+                context.fill();
+            }
         }
         function winUpdate() {
             canvas.width = window.width;
             canvas.height = window.height;
         }
         function update() {
-            draw();
+            Shapedraw();
         }
         update();
         window.onmousemove = function (e) {
