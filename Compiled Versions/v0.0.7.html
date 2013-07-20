@@ -1,0 +1,855 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Draw.Js</title>
+
+        <!-- Style Sheet -->
+        <style>
+            body{
+    background-color: #9FD3DA;
+    /*cursor: pointer;*/
+}
+* {
+    color: white;
+    text-align: center;
+    font-family: 'Fauna One', serif;
+    line-height: 40px;
+}
+/*TITLE*/
+#title {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 40px;
+    background-color: #FF6F69;
+    color: white;
+    text-align: center;
+    font-family: 'Fauna One', serif;
+    font-size: 34px;
+}
+#canvas {
+    position: fixed;
+    left: 0px;
+    top: 40px;
+    background-color: white;
+}
+#canvas1{
+    position: fixed;
+    left: 0px;
+    top: 40px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas2{
+    position: fixed;
+    left: 0px;
+    top: 40px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas3{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas4{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas5{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+.select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.button{
+    position: absolute;
+    right: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+#reset{
+    position: absolute;
+    top: 200px;
+    right: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 80px;
+    height: 40px;
+    background-color: #4DDEFF;
+    color: white;
+}
+#erase{
+    position: absolute;
+    top: 200px;
+    right: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 80px;
+    height: 40px;
+    background-color: #00D0FF;
+    color: white;
+}
+
+/* Brush Display*/
+#brushDisplay {
+    position: absolute;
+    background-color: #FFF8DC; 
+    top: 480px;
+    right: 0px;
+}
+
+/*SIZE*/
+#size {
+    position: absolute;
+    background-color: #FF6D24; 
+    top: 640px;
+    right: 0px;
+    height: 40px;
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+#sizeDisplay {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 640px;
+    right: 80px;
+    height: 40px;
+    width: 80px;
+}
+
+
+/* R */
+#rcol {
+    position: absolute;
+    background-color: #FF6D24; 
+    top: 680px;
+    right: 0px;
+    height: 40px;
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+#rcolDisplay {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 680px;
+    right: 80px;
+    height: 40px;
+    width: 80px;
+}
+/* G */
+#gcol {
+    position: absolute;
+    background-color: #FF6D24; 
+    top: 720px;
+    right: 0px;
+    height: 40px;
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+#gcolDisplay {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 720px;
+    right: 80px;
+    height: 40px;
+    width: 80px;
+}
+/* B */
+#bcol {
+    position: absolute;
+    background-color: #FF6D24; 
+    top: 760px;
+    right: 0px;
+    height: 40px;
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+#bcolDisplay {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 760px;
+    right: 80px;
+    height: 40px;
+    width: 80px;
+}
+
+/* O */
+#ocol {
+    position: absolute;
+    background-color: #FF6D24; 
+    top: 800px;
+    right: 0px;
+    height: 40px;
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+#ocolDisplay {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 800px;
+    right: 80px;
+    height: 40px;
+    width: 80px;
+}
+
+
+
+/*5px*/
+#a{
+    background-color: #FF9159; 
+    right: 40px;
+    top: 240px;
+}
+/*10px*/
+#b{
+    background-color: #FF8547;
+    right: 0px;
+    top: 240px;
+}
+/*15px*/
+#c{
+    background-color: #FF7936;
+    right: 40px;
+    top: 280px;
+}
+/*20px*/
+#d{
+    background-color: #FF6D24;
+    right: 0px;
+    top: 280px;
+}
+/*25px*/
+#e {
+    background-color: #FF6112;
+    right: 40px;
+    top: 320px;
+}
+/*30px*/
+#f {
+    background-color: #FF5500;
+    right: 0px;
+    top: 320px;
+}
+/*white back*/
+#g{
+    background-color: white;
+    right: 80px;
+    top: 240px;
+    width: 80px;
+    color: black;
+}
+/*black back*/
+#h{
+    background-color: black;
+    right: 80px;
+    top: 280px;
+    width: 80px;
+    color: white;
+}
+/*solid mode*/
+#i {
+    background-color: #7291C4;
+    right: 120px;
+    top: 320px;
+}
+/*spray mode*/
+#j {
+    background-color: #6489C4;
+    right: 80px;
+    top: 320px;
+}
+/*Circle Brush*/
+#k {
+    background-color: #90E670;
+    right: 80px;
+    top: 360px;
+    width: 80px;
+}
+/*Square Brush*/
+#l {
+    background-color: #52E31E;
+    right: 0px;
+    top: 360px;
+    width: 80px;
+}
+/*LAY 1*/
+#m{
+    background-color: #EBC4FF;
+    right: 40px;
+    top: 400px;
+    line-height: 16px;
+}
+/*LAY 2*/
+#n{
+    background-color: #E6B3FF;
+    right: 0px;
+    top: 400px;
+    line-height: 16px;
+}
+/*LAY 3*/
+#o {
+    background-color: #E0A1FF;
+    right: 40px;
+    top: 440px;
+    line-height: 16px;
+}
+/*LAY 4*/
+#p {
+    background-color: #D88AFF;
+    right: 0px;
+    top: 440px;
+    line-height: 16px;
+}
+/*Draw a SQUARE*/
+#q {
+    background-color: #FAF687;
+    right: 80px;
+    top: 400px;
+    width: 80px;
+    line-height: 16px;
+}
+/*Draw a CIRCLE*/
+#r {
+    background-color: #EBE544;
+    right: 80px;
+    top: 440px;
+    width: 80px;
+    line-height: 16px;
+}
+/*
+#colourpicker {
+    position: absolute;
+    top: 0px;
+    right: 1024px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 160px;
+    background-color: #FF7C3B;
+    color: white;
+}
+#set {
+    position: absolute;
+    top: 140px;
+    right: 1024px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 20px;
+    background-color: #FF6D24;
+    color: white;
+    text-align: center;
+}
+    */
+#specific {
+    position: absolute;
+    top: 280px;
+    right: 864px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 220px;
+    background-color: #F7E83E;
+}
+/*DARK PURPLE*/
+#button1 {
+    right: 120px;
+    top: 40px;
+    background-color: #A944DB;
+}
+/*DARK BLUE*/
+#button2 {
+    right: 80px;
+    top: 40px;
+    background-color: #2D67C4;
+}
+/*DARK GREEN*/
+#button3 {
+    right: 40px;
+    top: 40px;
+    background-color: #42A61E;
+}
+/*RED*/
+#button4 {
+    right: 0px;
+    top: 40px;
+    background-color:#FF3636;
+}
+/*PURPLE*/
+#button5 {
+    right: 120px;
+    top: 80px;
+    background-color: #C44FFF;
+}
+/*BLUE*/
+#button6 {
+    right: 80px;
+    top: 80px;
+    background-color: #4089FF;
+}
+/*GREEN*/
+#button7 {
+    right: 40px;
+    top: 80px;
+    background-color: #57D629;
+}
+/*ORANGE*/
+#button8 {
+    right: 0px;
+    top: 80px;
+    background-color: #FF7C36;
+}
+/*LIGHT PURPLE*/
+#button9 {
+    right: 120px;
+    top: 120px;
+    background-color: #CD6BFF;
+}
+/*LIGHT BLUE*/
+#button10 {
+    right: 80px;
+    top: 120px;
+    background-color: #689EF7;
+}
+/*LIGHT GREEN*/
+#button11 {
+    right: 40px;
+    top: 120px;
+    background-color: #5EE82C;
+}
+/*LIGHT ORANGE*/
+#button12 {
+    right: 0px;
+    top: 120px;
+    background-color: #FFAD29;
+}
+/*PALE PURPLE*/
+#button13 {
+    right: 120px;
+    top: 160px;
+    background-color: #D88AFF;
+}
+/*PALE BLUE*/
+#button14 {
+    right: 80px;
+    top: 160px;
+    background-color: #89B4FA;
+}
+/*LIME GREEN*/
+#button15 {
+    right: 40px;
+    top: 160px;
+    background-color: #73FF40;
+}
+/*YELLOW*/
+#button16 {
+    right: 0px;
+    top: 160px;
+    background-color: #EBE544;
+}
+.ranges {
+    position: absolute;
+    right: 864px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 20px;
+    -webkit-appearance: none !important;
+}
+#range1 {
+    top: 400px;
+    background-color: #FF8547;
+}
+#range2 {
+    top: 420px;
+    background-color: #FF7936;
+}
+#range3 {
+    top: 440px;
+    background-color: #FF6D24;
+}
+#range4 {
+    top: 460px;
+    background-color: #FF6112;
+}
+#range5 {
+    top: 480px;
+    background-color: #FF5500;
+}
+        </style>
+
+        <!-- Favicon -->
+        <link rel="icon" href="head.ico" />
+
+        <!-- Google Fonts-->
+        <link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+        
+
+        <!-- Canvas's -->
+        <canvas id="canvas" class="select"></canvas>
+        <canvas id="canvas1" class="select"></canvas>
+        <canvas id="canvas2" class="select"></canvas>
+        <canvas id="canvas3" class="select"></canvas>
+        <canvas id="canvas4" class="select"></canvas>
+        <canvas id="canvas5" class="select"></canvas>
+        
+        <!-- Colour Palette -->
+        <button id="button1" class="button" onclick="colourSet(169, 68, 219)"></button>
+        <button id="button2" class="button" onclick="colourSet(45, 103, 196)"></button>
+        <button id="button3" class="button" onclick="colourSet(66, 166, 30)"></button>
+        <button id="button4" class="button" onclick="colourSet(255, 54, 54)"></button>
+        <button id="button5" class="button" onclick="colourSet(196, 79, 255)"></button>
+        <button id="button6" class="button" onclick="colourSet(64, 137, 255)"></button>
+        <button id="button7" class="button" onclick="colourSet(87, 214, 41)"></button>
+        <button id="button8" class="button" onclick="colourSet(255, 124, 54)"></button>
+        <button id="button9" class="button" onclick="colourSet(205, 107, 255)"></button>
+        <button id="button10" class="button" onclick="colourSet(104, 158, 247)"></button>
+        <button id="button11" class="button" onclick="colourSet(94, 232, 44)"></button>
+        <button id="button12" class="button" onclick="colourSet(255, 173, 41)"></button>
+        <button id="button13" class="button" onclick="colourSet(216, 138, 255)"></button>
+        <button id="button14" class="button" onclick="colourSet(137, 180, 250)"></button>
+        <button id="button15" class="button" onclick="colourSet(115, 255, 64)"></button>
+        <button id="button16" class="button" onclick="colourSet(235, 229, 68)"></button>
+        <!-- Reset & Eraser Button-->
+        <button id="reset" onclick="reset()">Reset The Canvas</button>
+        <button id="erase" onclick="erase()">Eraser</button>
+        <!-- Brush Size -->
+        <button id="a" class="button" onclick="brushSet(5)">5px</button>
+        <button id="b" class="button" onclick="brushSet(10)">10px</button>
+        <button id="c" class="button" onclick="brushSet(15)">15px</button>
+        <button id="d" class="button" onclick="brushSet(20)">20px</button>
+        <button id="e" class="button" onclick="brushSet(25)">25px</button>
+        <button id="f" class="button" onclick="brushSet(30)">30px</button>
+        <!-- Background Colour-->
+        <button id="g" class="button" onclick="backgroundColour(colours[16])">Background</button>
+        <button id="h" class="button" onclick="backgroundColour(colours[17])">Background</button>
+        <!-- Brushes & Brush Modes-->
+        <button id="i" class="button" onclick="setDrawType(types[0])">Solid</button>
+        <button id="j" class="button" onclick="setDrawType(20)">Spray</button>
+        <button id="k" class="button" onclick="setShape(shapes[0])">Circle Brush</button>
+        <button id="l" class="button" onclick="setShape(shapes[1])">Square Brush</button>
+        <!-- Layer Selection -->
+        <button id="m" class="button" onclick="setLayer(context1)">Layer 1</button>
+        <button id="n" class="button" onclick="setLayer(context2)">Layer 2</button>
+        <button id="o" class="button" onclick="setLayer(context3)">Layer 3</button>
+        <button id="p" class="button" onclick="setLayer(context4)">Layer 4</button>
+        <!-- Shape Selections -->
+        <button id="q" class="button" onclick="">Draw A Square</button>
+        <button id="r" class="button" onclick="">Draw A Circle</button>
+
+        <!-- Brush display -->
+        <canvas id="brushDisplay" height="160" width="160"></canvas>
+
+        <!-- size slider-->
+        <div id="sizeDisplay">30</div>
+        <div id="size"></div>
+        <input type="range" id="size" min="5" max="80" value="30" onchange="brushSet(this.value);">
+
+        <!-- R -->
+        <div id="rcolDisplay">115</div>
+        <div id="rcol"></div>
+        <input type="range" id="rcol" min="5" max="255" value="115" onchange="colourSet(this.value,g,b);">
+
+        <!-- G -->
+        <div id="gcolDisplay">255</div>
+        <div id="gcol"></div>
+        <input type="range" id="gcol" min="5" max="255" value="255" onchange="colourSet(r,this.value,b);">
+
+        <!-- B -->
+        <div id="bcolDisplay">64</div>
+        <div id="bcol"></div>
+        <input type="range" id="bcol" min="5" max="255" value="64" onchange="colourSet(r,g,this.value);">
+
+        <!-- O -->
+        <div id="ocolDisplay">1</div>
+        <div id="ocol"></div>
+        <input type="range" id="ocol" min="1" max="100" value="100" onchange="opacSet(this.value);">
+
+        <!-- Title-->
+        <div id="title">Paint.JS</div>
+
+        <!-- Script -->
+        <script>
+            //Canvas's
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            var canvas1 = document.getElementById('canvas1');
+            var context1 = canvas1.getContext('2d');
+            var canvas2 = document.getElementById('canvas2');
+            var context2 = canvas2.getContext('2d');
+            var canvas3 = document.getElementById('canvas3');
+            var context3 = canvas3.getContext('2d');
+            var canvas4 = document.getElementById('canvas4');
+            var context4 = canvas4.getContext('2d');
+            var canvas5 = document.getElementById('canvas5');
+            var context5 = canvas4.getContext('2d');
+            var canvas6 = document.getElementById('brushDisplay');
+            var context6 = canvas6.getContext('2d');
+
+            // Colours
+            var r = 115,
+                g = 255,
+                b = 64,
+                o = 100;
+            //resize
+            function resizeCanvas(input) {
+                input.width = document.width - 160;
+                input.height = document.height - 40;
+            }
+            window.addEventListener('resize', winUpdate, false);
+
+            //global var's
+            var posit = [];
+            var brushColour = "rgba(" + r + "," + g + "," + b + "," + o + ")";
+            var brushSize = "30";
+            var back = "white";
+            var colours = ["FF3636", "FF7C36", "FFAD29", "EBE544", "42A61E", "57D629", "5EE82C", "73FF40", "2D67C4", "4089FF", "689EF7", "89B4FA", "A944DB", "C44FFF", "CD6BFF", "D88AFF", "white", "black"];
+            //red orangedark orangelight yellow darkgreen darkgreenlight green greenlight darkblue lightdarkblue darklightblue lightblue darkpurple lightdarkpurple darklightpurple lightpurple white black
+            var mouse = false;
+            var mode = "draw";
+            var grd;
+            var drawType = "fill";
+            var types = ["fill", "grad"];
+            var brushGrad;
+            var shape = "circle";
+            var shapes = ["circle", "square"];
+            var layerSelected = context1;
+            function setLayer(input) {
+                console.log(input);
+                layerSelected = input;
+            }
+            function setShape(input) {
+                shape = input;
+            }
+            function setDrawType(input) {
+                if (input === "fill") {
+                    drawType = input;
+                }
+                else {
+                    drawType = "grad";
+                    brushGrad = input;
+                }
+            }
+            function setShape(input) {
+                shape = input;
+            }
+            function draw(x, y) {
+                if (y <= 0 || x > canvas.width) { }
+                else if (drawType === "fill") {
+                    if (shape === "circle") {
+                        layerSelected.beginPath();
+                        layerSelected.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+                        layerSelected.fillStyle = brushColour;
+                        layerSelected.fill();
+                    }
+                    else {
+                        layerSelected.beginPath();
+                        layerSelected.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+                        layerSelected.fillStyle = brushColour;
+                        layerSelected.fill();
+                    }
+                }
+                else {
+                    if (shape === "circle") {
+                        layerSelected.beginPath();
+                        layerSelected.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+                        var grd = layerSelected.createRadialGradient(x, y, brushSize / brushGrad, x, y, brushSize);
+                        grd.addColorStop(0, brushColour);
+                        grd.addColorStop(1, 'rgba(255,255,255,0)');
+                        layerSelected.fillStyle = grd;
+                        layerSelected.fill();
+                    }
+                    else {
+                        layerSelected.beginPath();
+                        layerSelected.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+                        var grd = layerSelected.createRadialGradient(x, y, brushSize * 2 / brushGrad, x, y, brushSize * 2);
+                        grd.addColorStop(0, brushColour);
+                        grd.addColorStop(1, 'rgba(255,255,255,0)')
+                        layerSelected.fillStyle = grd;
+                        layerSelected.fill();
+                    }
+                }
+            }
+            function colourSet(inr, ing, inb) {
+                r = inr;
+                g = ing;
+                b = inb;
+                document.getElementById('rcolDisplay').innerHTML = r;
+                document.getElementById('gcolDisplay').innerHTML = g;
+                document.getElementById('bcolDisplay').innerHTML = b;
+                brushColour = "rgba(" + r + "," + g + "," + b + "," + o + ")";
+                display(canvas6.width / 2, canvas6.height / 2);
+                mode = "draw";
+            }
+            function opacSet(input) {
+                o = input / 100;
+                brushColour = "rgba(" + r + "," + g + "," + b + "," + o + ")";
+                document.getElementById('ocolDisplay').innerHTML = o;
+                display(canvas6.width / 2, canvas6.height / 2);
+                mode = "draw";
+            }
+            function reset() {
+                layerSelected.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            function erase() {
+                mode = "erase";
+            }
+            function brushSet(input) {
+                brushSize = input;
+                document.getElementById("sizeDisplay").innerHTML = brushSize;
+                display(canvas6.width / 2, canvas6.height / 2);
+            }
+            function backgroundColour(input) {
+                context.beginPath();
+                context.rect(0, 0, canvas.width, canvas.height);
+                context.fillStyle = input;
+                context.fill();
+                back = input;
+            }
+            window.onmousemove = function (e) {
+                e = e || window.event;
+                posit[0] = e.clientX - 0 || e.pageX - 0;
+                posit[1] = e.clientY - 40 || e.pageY - 40;
+                if (mouse === true) {
+                    if (mode === "erase") {
+                        if (posit[1] > canvas.height || posit[0] > canvas.width || posit[1] <= 0) { }
+                        else {
+                            layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+                        }
+                    }
+                    else {
+                        draw(posit[0], posit[1]);
+                    }
+                }
+                display(canvas6.width / 2, canvas6.height / 2);
+            };
+            window.onmousedown = function (e) {
+                mouse = true;
+                if (mode === "erase") {
+                    if (posit[1] > canvas.height || posit[0] > canvas.width || posit[1] <= 0) { }
+                    else {
+                        layerSelected.clearRect(posit[0] - brushSize, posit[1] - brushSize, brushSize * 2, brushSize * 2);
+                    }
+                }
+                else {
+                    draw(posit[0], posit[1]);
+                }
+            };
+            window.onmouseup = function (e) {
+                mouse = false;
+            };
+
+            window.onload = function (e) {
+                resizeCanvas(canvas);
+                resizeCanvas(canvas1);
+                resizeCanvas(canvas2);
+                resizeCanvas(canvas3);
+                resizeCanvas(canvas4);
+                resizeCanvas(canvas5);
+            }
+            function winUpdate() {
+                resizeCanvas(canvas);
+                resizeCanvas(canvas1);
+                resizeCanvas(canvas2);
+                resizeCanvas(canvas3);
+                resizeCanvas(canvas4);
+                resizeCanvas(canvas5);
+            }
+
+
+
+
+            //DISPLAY
+            function display(x, y) {
+                context6.clearRect(0, 0, canvas.width, canvas.height);
+                if (drawType === "fill") {
+                    if (shape === "circle") {
+                        context6.beginPath();
+                        context6.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+                        context6.fillStyle = brushColour;
+                        context6.fill();
+                    }
+                    else {
+                        context6.beginPath();
+                        context6.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+                        context6.fillStyle = brushColour;
+                        context6.fill();
+                    }
+                }
+                else {
+                    if (shape === "circle") {
+                        context6.beginPath();
+                        context6.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+                        var grd = context6.createRadialGradient(x, y, brushSize / brushGrad, x, y, brushSize);
+                        grd.addColorStop(0, brushColour);
+                        grd.addColorStop(1, 'rgba(255,255,255,0)');
+                        context6.fillStyle = grd;
+                        context6.fill();
+                    }
+                    else {
+                        context6.beginPath();
+                        context6.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+                        var grd = context6.createRadialGradient(x, y, brushSize * 2 / brushGrad, x, y, brushSize * 2);
+                        grd.addColorStop(0, brushColour);
+                        grd.addColorStop(1, 'rgba(255,255,255,0)')
+                        context6.fillStyle = grd;
+                        context6.fill();
+                    }
+                }
+            }
+            display(canvas6.width / 2, canvas6.height / 2);
+
+
+
+            function Shapedraw() {
+                context5.clearRect(0, 0, canvas.width, canvas.height);
+                if (shape === "circle") {
+                    context5.beginPath();
+                    context5.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+                    context5.fillStyle = brushColour;
+                    context5.fill();
+                }
+                else {
+                    context5.beginPath();
+                    context5.rect(positSet[0], positSet[1], posit[0] - positSet[0], posit[1] - positSet[1]);
+                    context5.fillStyle = colour;
+                    context5.fill();
+                }
+            }
+        </script>
+    </body>
+</html>
