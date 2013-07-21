@@ -16,11 +16,28 @@
     width: 100%;
     height: 40px;
     background-color: #FF6F69;
-    color: white;
-    text-align: center;
-    font-family: 'Fauna One', serif;
     font-size: 34px;
 }
+
+/*Logo*/
+#logo {
+    position: fixed;
+    top: 0px; 
+    left: 0px;
+    width: 40px;
+    height: 40px;
+}
+
+/* Tools */
+.tool {
+    position: fixed;
+
+}
+#selection_tool {
+    background-color: #F05F59;
+}
+
+/* Canvas's */
 #canvas {
     position: fixed;
     left: 0px;
@@ -57,6 +74,10 @@
     top: 40px;
     background-color: rgba(255, 255, 255, 0.00);
 }
+
+
+
+
 .select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -86,6 +107,7 @@
     height: 40px;
     background-color: #4DDEFF;
     color: white;
+    line-height: 16px;
 }
 #erase{
     position: absolute;
@@ -377,98 +399,114 @@
 /*DARK PURPLE*/
 #button1 {
     right: 120px;
-    top: 40px;
+    top: 120px;
     background-color: #A944DB;
+    height: 20px;
 }
 /*DARK BLUE*/
 #button2 {
     right: 80px;
-    top: 40px;
+    top: 120px;
     background-color: #2D67C4;
+    height: 20px;
 }
 /*DARK GREEN*/
 #button3 {
     right: 40px;
-    top: 40px;
+    top: 120px;
     background-color: #42A61E;
+    height: 20px;
 }
 /*RED*/
 #button4 {
     right: 0px;
-    top: 40px;
+    top: 120px;
     background-color:#FF3636;
+    height: 20px;
 }
 /*PURPLE*/
 #button5 {
     right: 120px;
-    top: 80px;
+    top: 140px;
     background-color: #C44FFF;
+    height: 20px;
 }
 /*BLUE*/
 #button6 {
     right: 80px;
-    top: 80px;
+    top: 140px;
     background-color: #4089FF;
+    height: 20px;
 }
 /*GREEN*/
 #button7 {
     right: 40px;
-    top: 80px;
+    top: 140px;
     background-color: #57D629;
+    height: 20px;
 }
 /*ORANGE*/
 #button8 {
     right: 0px;
-    top: 80px;
+    top: 140px;
     background-color: #FF7C36;
+    height: 20px;
 }
 /*LIGHT PURPLE*/
 #button9 {
     right: 120px;
-    top: 120px;
+    top: 160px;
     background-color: #CD6BFF;
+    height: 20px;
 }
 /*LIGHT BLUE*/
 #button10 {
     right: 80px;
-    top: 120px;
+    top: 160px;
     background-color: #689EF7;
+    height: 20px;
 }
 /*LIGHT GREEN*/
 #button11 {
     right: 40px;
-    top: 120px;
+    top: 160px;
     background-color: #5EE82C;
+    height: 20px;
 }
 /*LIGHT ORANGE*/
 #button12 {
     right: 0px;
-    top: 120px;
+    top: 160px;
     background-color: #FFAD29;
+    height: 20px;
 }
 /*PALE PURPLE*/
 #button13 {
     right: 120px;
-    top: 160px;
+    top: 180px;
     background-color: #D88AFF;
+    height: 20px;
 }
 /*PALE BLUE*/
 #button14 {
     right: 80px;
-    top: 160px;
+    top: 180px;
     background-color: #89B4FA;
+    height: 20px;
 }
 /*LIME GREEN*/
 #button15 {
     right: 40px;
-    top: 160px;
+    top: 180px;
     background-color: #73FF40;
+    height: 20px;
 }
 /*YELLOW*/
 #button16 {
     right: 0px;
-    top: 160px;
+    top: 180px;
     background-color: #EBE544;
+    height: 20px;
 }
 .ranges {
     position: absolute;

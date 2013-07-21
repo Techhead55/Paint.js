@@ -125,6 +125,7 @@ function brushSet(input) {
     brushSize = input;
     document.getElementById("sizeDisplay").innerHTML = brushSize;
     display(canvas6.width / 2, canvas6.height / 2);
+    mode = "draw";
 }
 function backgroundColour(input) {
     context.beginPath();
