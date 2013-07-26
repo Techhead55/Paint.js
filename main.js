@@ -28,6 +28,7 @@ window.addEventListener('resize', winUpdate, false);
 
 //global var's
 var posit = [];
+var positSet = [];
 var brushColour = "rgba("+r+","+g+","+b+","+o+")";
 var brushSize = "30";
 var back = "white";
@@ -40,6 +41,7 @@ var brushGrad;
 var shape = "circle";
 var shapes = ["circle", "square"];
 var layerSelected = context1;
+var clipped;
 function setLayer(input) {
     console.log(input);
     layerSelected = input;
@@ -101,9 +103,11 @@ function colourSet(inr, ing, inb) {
     g = ing;
     b = inb;
     document.getElementById('rcolDisplay').innerHTML = r;
-    document.getElementById('rcol').valueOf = r;
+    document.getElementById('rcol').value = r;
     document.getElementById('gcolDisplay').innerHTML = g;
+    document.getElementById('gcol').value = g;
     document.getElementById('bcolDisplay').innerHTML = b;
+    document.getElementById('bcol').value = b;
     brushColour = "rgba(" + r + "," + g + "," + b + "," + o + ")";
     display(canvas6.width / 2, canvas6.height / 2);
     mode = "draw";
@@ -153,6 +157,8 @@ window.onmousemove = function (e) {
 };
 window.onmousedown = function (e) {
     mouse = true;
+    positSet[0] = posit[0];
+    positSet[1] = posit[1];
     if (mode === "erase") {
         if (posit[1] > canvas.height || posit[0] > canvas.width || posit[1] <= 0) { }
         else {

@@ -35,8 +35,10 @@
             else {
                 context.beginPath();
                 context.rect(positSet[0], positSet[1], posit[0] - positSet[0], posit[1] - positSet[1]);
-                context.fillStyle = colour;
+                context.fillStyle = "rgba(255,255,255,0)";
                 context.fill();
+                context.strokeStyle = "black";
+                context.stroke()
             }
         }
         function winUpdate() {
@@ -56,6 +58,9 @@
             }
         };
         window.onmousedown = function (e) {
+            e = e || window.event;
+            posit[0] = e.clientX || e.pageX;
+            posit[1] = e.clientY || e.pageY;
             positSet[0] = posit[0];
             positSet[1] = posit[1];
             setting=true;

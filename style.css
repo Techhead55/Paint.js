@@ -31,10 +31,27 @@
 /* Tools */
 .tool {
     position: fixed;
-
+    top: 0px;
+    right: 0px;
+    height: 40px;
+    width: 40px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    background-color: #F05F59;
 }
 #selection_tool {
-    background-color: #F05F59;
+    right: 120px;
+    background-image: url("img/brush_tool.png");
+}
+#brush_tool {
+    right: 80px;
+}
+#colourBucket_tool {
+    right: 40px;
+}
+#colourPicker_tool {
+    right: 0px;
 }
 
 /* Canvas's */

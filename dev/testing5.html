@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Testing 5</title>
+    </head>
+    <body>
+
+    <canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+    <style>
+    #myCanvas{position: fixed; left: 0px; top: 0px;}
+    #aa{position: fixed; left: 0px; top: 50%;}
+    </style>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        canvas.width = document.width;
+        canvas.height = document.height / 2;
+        context.fillStyle = "red";
+        context.fillRect(10, 10, 50, 50);
+        context.fillStyle = "yellow";
+        context.fillRect(60, 10, 50, 50);
+        var posit = [];
+        window.onkeydown = function (e) {
+            e = e || window.event;
+            code = e.keyCode || e.which;
+            if (code === 13) {
+                var imgData = context.getImageData(10, 10, 50, 50);
+                context.putImageData(imgData, posit[0], posit[1]);
+            }
+        };
+        window.onmousemove = function (e) {
+            e = e || window.event;
+            posit[0] = e.clientX || e.pageX;
+            console.log(posit[0]);
+            posit[1] = e.clientY || e.pageY;
+            console.log(posit[1]);
+        };
+
+
+
+
+    </script>
+
+    <button id="aa" onclick="copy()">Copy</button>
+
+    </body>
+</html>
