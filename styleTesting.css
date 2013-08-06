@@ -1,0 +1,546 @@
+﻿body{
+    background-color: #9FD3DA;
+    /*cursor: pointer;*/
+}
+* {
+    color: white;
+    text-align: center;
+    font-family: 'Fauna One', serif;
+    line-height: 40px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+/*Control Square*/
+#controls {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    height: 120px;
+    width: 160px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* Tools */
+.tool {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+}
+#selection_tool {
+    left: 5px;
+    background-color: #272727;
+    bottom: 125px;
+}
+#brush_tool {
+    left: 45px;
+    bottom: 125px;
+    background-color: #3e3e3e;
+}
+#spray_tool {
+    left: 5px;
+    bottom: 85px;
+    background-color: #797979;
+}
+#colourPicker_tool {
+    left: 45px;
+    bottom: 85px;
+    background-color: #a8a8a8;
+}
+
+
+
+
+/* Canvas's */
+#canvas {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: white;
+}
+#canvas1{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas2{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas3{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas4{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+#canvas5{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+
+
+
+
+.select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.button{
+    position: absolute;
+    right: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+#reset{
+    position: absolute;
+    top: 200px;
+    right: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 80px;
+    height: 40px;
+    background-color: #4DDEFF;
+    color: white;
+    line-height: 16px;
+}
+#erase{
+    position: absolute;
+    top: 200px;
+    right: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 80px;
+    height: 40px;
+    background-color: #00D0FF;
+    color: white;
+}
+
+/* Brush Display*/
+#brushDisplay {
+    position: fixed;
+    background-color: rgba(0,0,0,0); 
+    bottom: 5px;
+    right: 5px;
+}
+
+/*SIZE*/
+#size {
+    position: absolute;
+    background-color: #FF6D24; 
+    top: 640px;
+    right: 0px;
+    height: 40px;
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+#sizeDisplay {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 640px;
+    right: 80px;
+    height: 40px;
+    width: 80px;
+}
+
+
+/* R */
+#rcol {
+    position: absolute;
+    background-color: #FF6D24; 
+    top: 680px;
+    right: 0px;
+    height: 40px;
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+#rcolDisplay {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 680px;
+    right: 80px;
+    height: 40px;
+    width: 80px;
+}
+/* G */
+#gcol {
+    position: absolute;
+    background-color: #FF6D24; 
+    top: 720px;
+    right: 0px;
+    height: 40px;
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+#gcolDisplay {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 720px;
+    right: 80px;
+    height: 40px;
+    width: 80px;
+}
+/* B */
+#bcol {
+    position: absolute;
+    background-color: #FF6D24; 
+    top: 760px;
+    right: 0px;
+    height: 40px;
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+#bcolDisplay {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 760px;
+    right: 80px;
+    height: 40px;
+    width: 80px;
+}
+
+/* O */
+#ocol {
+    position: absolute;
+    background-color: #FF6D24; 
+    top: 800px;
+    right: 0px;
+    height: 40px;
+    width: 80px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+#ocolDisplay {
+    position: absolute;
+    background-color: #FF9159; 
+    top: 800px;
+    right: 80px;
+    height: 40px;
+    width: 80px;
+}
+
+
+
+/*5px*/
+#a{
+    background-color: #FF9159; 
+    right: 40px;
+    top: 240px;
+}
+/*10px*/
+#b{
+    background-color: #FF8547;
+    right: 0px;
+    top: 240px;
+}
+/*15px*/
+#c{
+    background-color: #FF7936;
+    right: 40px;
+    top: 280px;
+}
+/*20px*/
+#d{
+    background-color: #FF6D24;
+    right: 0px;
+    top: 280px;
+}
+/*25px*/
+#e {
+    background-color: #FF6112;
+    right: 40px;
+    top: 320px;
+}
+/*30px*/
+#f {
+    background-color: #FF5500;
+    right: 0px;
+    top: 320px;
+}
+/*white back*/
+#g{
+    background-color: white;
+    right: 80px;
+    top: 240px;
+    width: 80px;
+    color: black;
+}
+/*black back*/
+#h{
+    background-color: black;
+    right: 80px;
+    top: 280px;
+    width: 80px;
+    color: white;
+}
+/*solid mode*/
+#i {
+    background-color: #7291C4;
+    right: 120px;
+    top: 320px;
+}
+/*spray mode*/
+#j {
+    background-color: #6489C4;
+    right: 80px;
+    top: 320px;
+}
+/*Circle Brush*/
+#k {
+    background-color: #90E670;
+    right: 80px;
+    top: 360px;
+    width: 80px;
+}
+/*Square Brush*/
+#l {
+    background-color: #52E31E;
+    right: 0px;
+    top: 360px;
+    width: 80px;
+}
+/*LAY 1*/
+#m{
+    background-color: #EBC4FF;
+    right: 40px;
+    top: 400px;
+    line-height: 16px;
+}
+/*LAY 2*/
+#n{
+    background-color: #E6B3FF;
+    right: 0px;
+    top: 400px;
+    line-height: 16px;
+}
+/*LAY 3*/
+#o {
+    background-color: #E0A1FF;
+    right: 40px;
+    top: 440px;
+    line-height: 16px;
+}
+/*LAY 4*/
+#p {
+    background-color: #D88AFF;
+    right: 0px;
+    top: 440px;
+    line-height: 16px;
+}
+/*Draw a SQUARE*/
+#q {
+    background-color: #FAF687;
+    right: 80px;
+    top: 400px;
+    width: 80px;
+    line-height: 16px;
+}
+/*Draw a CIRCLE*/
+#r {
+    background-color: #EBE544;
+    right: 80px;
+    top: 440px;
+    width: 80px;
+    line-height: 16px;
+}
+/*
+#colourpicker {
+    position: absolute;
+    top: 0px;
+    right: 1024px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 160px;
+    background-color: #FF7C3B;
+    color: white;
+}
+#set {
+    position: absolute;
+    top: 140px;
+    right: 1024px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 20px;
+    background-color: #FF6D24;
+    color: white;
+    text-align: center;
+}
+    */
+#specific {
+    position: absolute;
+    top: 280px;
+    right: 864px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 220px;
+    background-color: #F7E83E;
+}
+.pallet {
+    position: fixed;
+    height: 20px;
+    width: 20px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+/*DARK PURPLE*/
+#button1 {
+    left: 85px;
+    bottom: 145px;
+    background-color: #A944DB;
+}
+/*PURPLE*/
+#button5 {
+    left:  85px;
+    bottom: 125px;
+    background-color: #C44FFF;
+}
+/*LIGHT PURPLE*/
+#button9 {
+    left: 105px;
+    bottom: 145px;
+    background-color: #CD6BFF;
+}
+/*PALE PURPLE*/
+#button13 {
+    left: 105px;
+    bottom: 125px;
+    background-color: #D88AFF;
+}
+/*DARK BLUE*/
+#button2 {
+    left: 125px;
+    bottom: 145px;
+    background-color: #2D67C4;
+}
+/*BLUE*/
+#button6 {
+    left: 125px;
+    bottom: 125px;
+    background-color: #4089FF;
+}
+/*LIGHT BLUE*/
+#button10 {
+    left: 145px;
+    bottom: 145px;
+    background-color: #689EF7;
+}
+/*PALE BLUE*/
+#button14 {
+    left: 145px;
+    bottom: 125px;
+    background-color: #89B4FA;
+}
+/*DARK GREEN*/
+#button3 {
+    right: 40px;
+    bottom: 120px;
+    background-color: #42A61E;
+}
+/*GREEN*/
+#button7 {
+    right: 40px;
+    bottom: 140px;
+    background-color: #57D629;
+}
+/*LIGHT GREEN*/
+#button11 {
+    right: 40px;
+    bottom: 160px;
+    background-color: #5EE82C;
+}
+/*LIME GREEN*/
+#button15 {
+    right: 40px;
+    bottom: 180px;
+    background-color: #73FF40;
+}
+/*RED*/
+#button4 {
+    right: 0px;
+    bottom: 120px;
+    background-color:#FF3636;
+}
+/*ORANGE*/
+#button8 {
+    right: 0px;
+    bottom: 140px;
+    background-color: #FF7C36;
+}
+/*LIGHT ORANGE*/
+#button12 {
+    right: 0px;
+    bottom: 160px;
+    background-color: #FFAD29;
+}
+/*YELLOW*/
+#button16 {
+    right: 0px;
+    bottom: 180px;
+    background-color: #EBE544;
+}
+.ranges {
+    position: absolute;
+    right: 864px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 160px;
+    height: 20px;
+    -webkit-appearance: none !important;
+}
+#range1 {
+    top: 400px;
+    background-color: #FF8547;
+}
+#range2 {
+    top: 420px;
+    background-color: #FF7936;
+}
+#range3 {
+    top: 440px;
+    background-color: #FF6D24;
+}
+#range4 {
+    top: 460px;
+    background-color: #FF6112;
+}
+#range5 {
+    top: 480px;
+    background-color: #FF5500;
+}

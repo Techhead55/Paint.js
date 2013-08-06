@@ -28,17 +28,15 @@
             context.clearRect(0, 0, canvas.width, canvas.height);
             if (shape === "circle") {
                 context.beginPath();
-                context.arc(positSet[0] - (positSet[0] - posit[0]), positSet[1], 40, 0, 2 * Math.PI, false);
+                context.arc(positSet[0] + ((posit[0] - positSet[0]) / 2), positSet[1] + ((posit[1] - positSet[1]) / 2),(posit[0] - positSet[0]) / 2, 0, 2 * Math.PI, false);
                 context.fillStyle = colour;
                 context.fill();
             }
             else {
                 context.beginPath();
                 context.rect(positSet[0], positSet[1], posit[0] - positSet[0], posit[1] - positSet[1]);
-                context.fillStyle = "rgba(255,255,255,0)";
+                context.fillStyle = colour;
                 context.fill();
-                context.strokeStyle = "black";
-                context.stroke()
             }
         }
         function winUpdate() {

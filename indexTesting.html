@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Draw.Js</title>
+
+        <!-- Style Sheet -->
+        <link type="text/css" rel="stylesheet" href="styleTesting.css" />
+
+        <!-- Favicon -->
+        <link rel="icon" href="head.ico" />
+
+        <!-- Google Fonts-->
+        <link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+        <!-- Canvas's -->
+        <canvas id="canvas" class="select"></canvas>
+        <canvas id="canvas1" class="select"></canvas>
+        <canvas id="canvas2" class="select"></canvas>
+        <canvas id="canvas3" class="select"></canvas>
+        <canvas id="canvas4" class="select"></canvas>
+        <canvas id="canvas5" class="select"></canvas>
+
+        <!-- Show Everything-->
+
+        <!-- Tools -->
+        <button class="tool" id="selection_tool">A</button>
+        <button class="tool" id="brush_tool"  onclick="setDrawType(types[0])">Solid Brush</button>
+        <button class="tool" id="spray_tool" onclick="setDrawType(20)">Spray Brush</button>
+        <button class="tool" id="colourPicker_tool">D</button>
+        
+
+        <!-- Colour Palette -->
+        <button id="button1" class="pallet" onclick="colourSet(169, 68, 219)"></button>
+        <button id="button2" class="pallet" onclick="colourSet(45, 103, 196)"></button>
+        <button id="button3" class="pallet" onclick="colourSet(66, 166, 30)"></button>
+        <button id="button4" class="pallet" onclick="colourSet(255, 54, 54)"></button>
+        <button id="button5" class="pallet" onclick="colourSet(196, 79, 255)"></button>
+        <button id="button6" class="pallet" onclick="colourSet(64, 137, 255)"></button>
+        <button id="button7" class="pallet" onclick="colourSet(87, 214, 41)"></button>
+        <button id="button8" class="pallet" onclick="colourSet(255, 124, 54)"></button>
+        <button id="button9" class="pallet" onclick="colourSet(205, 107, 255)"></button>
+        <button id="button10" class="pallet" onclick="colourSet(104, 158, 247)"></button>
+        <button id="button11" class="pallet" onclick="colourSet(94, 232, 44)"></button>
+        <button id="button12" class="pallet" onclick="colourSet(255, 173, 41)"></button>
+        <button id="button13" class="pallet" onclick="colourSet(216, 138, 255)"></button>
+        <button id="button14" class="pallet" onclick="colourSet(137, 180, 250)"></button>
+        <button id="button15" class="pallet" onclick="colourSet(115, 255, 64)"></button>
+        <button id="button16" class="pallet" onclick="colourSet(235, 229, 68)"></button>
+        <!-- Reset & Eraser Button-->
+        <button id="reset" onclick="reset()">Reset The Canvas</button>
+        <button id="erase" onclick="erase()">Eraser</button>
+        <!-- Brush Size -->
+        <button id="a" class="button" onclick="brushSize=5)">5px</button>
+        <button id="b" class="button" onclick="brushSize=10">10px</button>
+        <button id="c" class="button" onclick="brushSize=15">15px</button>
+        <button id="d" class="button" onclick="brushSize=20">20px</button>
+        <button id="e" class="button" onclick="brushSize=25">25px</button>
+        <button id="f" class="button" onclick="brushSize=30">30px</button>
+        <!-- Background Colour-->
+        <button id="g" class="button" onclick="backgroundColour('#fff')">Background</button>
+        <button id="h" class="button" onclick="backgroundColour('#000')">Background</button>
+        <!-- Brushes & Brush Modes-->
+        <button id="i" class="button" onclick="setDrawType(types[0])">Solid</button>
+        <button id="j" class="button" onclick="setDrawType(20)">Spray</button>
+        <button id="k" class="button" onclick="shape = 'circle'">Circle Brush</button>
+        <button id="l" class="button" onclick="shape = 'square'">Square Brush</button>
+        <!-- Layer Selection -->
+        <button id="m" class="button" onclick="layerSelected=context1">Layer 1</button>
+        <button id="n" class="button" onclick="layerSelected=context2">Layer 2</button>
+        <button id="o" class="button" onclick="layerSelected=context3">Layer 3</button>
+        <button id="p" class="button" onclick="layerSelected=context4">Layer 4</button>
+        <!-- Shape Selections -->
+        <button id="q" class="button" onclick="">Draw A Square</button>
+        <button id="r" class="button" onclick="">Draw A Circle</button>
+
+        <!-- Brush display -->
+        <canvas id="brushDisplay" height="160" width="160"></canvas>
+
+        <!-- size slider-->
+        <div id="sizeDisplay">30</div>
+        <div id="size"></div>
+        <input type="range" id="size" min="5" max="80" value="30" onchange="brushSize=this.value;">
+
+        <!-- R -->
+        <div id="rcolDisplay">115</div>
+        <div id="rcol"></div>
+        <input type="range" id="rcol" min="5" max="255" value="115" onchange="colourSet(this.value,g,b);">
+
+        <!-- G -->
+        <div id="gcolDisplay">255</div>
+        <div id="gcol"></div>
+        <input type="range" id="gcol" min="5" max="255" value="255" onchange="colourSet(r,this.value,b);">
+
+        <!-- B -->
+        <div id="bcolDisplay">64</div>
+        <div id="bcol"></div>
+        <input type="range" id="bcol" min="5" max="255" value="64" onchange="colourSet(r,g,this.value);">
+
+        <!-- O -->
+        <div id="ocolDisplay">1</div>
+        <div id="ocol"></div>
+        <input type="range" id="ocol" min="1" max="100" value="100" onchange="opacSet(this.value);">
+
+        
+
+        <!-- Script -->
+        <script src="mainTesting.js"></script>
+    </body>
+</html>

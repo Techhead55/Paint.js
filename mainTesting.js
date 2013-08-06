@@ -11,8 +11,8 @@ var canvas4 = document.getElementById('canvas4');
 var context4 = canvas4.getContext('2d');
 var canvas5 = document.getElementById('canvas5');
 var context5 = canvas4.getContext('2d');
-var canvas6 = document.getElementById('brushDisplay');
-var context6 = canvas6.getContext('2d');
+var displayCnv = document.getElementById('brushDisplay');
+var displayCtx = displayCnv.getContext('2d');
 
 // Colours
 var r = 115,
@@ -21,8 +21,8 @@ var r = 115,
     o = 100;
 //resize
 function resizeCanvas(input) {
-    input.width = document.width - 160;
-    input.height = document.height - 40;
+    input.width = document.width;
+    input.height = document.height;
 }
 window.addEventListener('resize', winUpdate, false);
 
@@ -42,13 +42,6 @@ var shape = "circle";
 var shapes = ["circle", "square"];
 var layerSelected = context1;
 var clipped;
-function setLayer(input) {
-    console.log(input);
-    layerSelected = input;
-}
-function setShape(input) {
-    shape = input;
-}
 function setDrawType(input) {
     if (input === "fill") {
         drawType = input;
@@ -61,40 +54,51 @@ function setDrawType(input) {
 function setShape(input) {
     shape = input;
 }
-function draw(x, y) {
-    if (y <= 0 || x > canvas.width) { }
-    else if (drawType === "fill") {
+function submitDraw(x, y, inputLayer, display) {
+    if (display !== "display") {
+        if (x > 5 && x < 165 && y > canvas.height - 165 && y < canvas.height - 5) {}
+        else if (x > canvas.width - 165 && x < canvas.width - 5 && y > canvas.height - 165 && y < canvas.height - 5) {}
+        else {
+            draw(x, y, inputLayer);
+        }
+    }
+    else {
+        draw(x, y, inputLayer);
+    }
+}
+function draw(x, y, inputLayer) {
+    if (drawType === "fill") {
         if (shape === "circle") {
-            layerSelected.beginPath();
-            layerSelected.arc(x, y, brushSize, 0, 2 * Math.PI, false);
-            layerSelected.fillStyle = brushColour;
-            layerSelected.fill();
+            inputLayer.beginPath();
+            inputLayer.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+            inputLayer.fillStyle = brushColour;
+            inputLayer.fill();
         }
         else {
-            layerSelected.beginPath();
-            layerSelected.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
-            layerSelected.fillStyle = brushColour;
-            layerSelected.fill();
+            inputLayer.beginPath();
+            inputLayer.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+            inputLayer.fillStyle = brushColour;
+            inputLayer.fill();
         }
     }
     else {
         if (shape === "circle") {
-            layerSelected.beginPath();
-            layerSelected.arc(x, y, brushSize, 0, 2 * Math.PI, false);
-            var grd = layerSelected.createRadialGradient(x, y, brushSize / brushGrad, x, y, brushSize);
+            inputLayer.beginPath();
+            inputLayer.arc(x, y, brushSize, 0, 2 * Math.PI, false);
+            var grd = inputLayer.createRadialGradient(x, y, brushSize / brushGrad, x, y, brushSize);
             grd.addColorStop(0, brushColour);
             grd.addColorStop(1, 'rgba(255,255,255,0)');
-            layerSelected.fillStyle = grd;
-            layerSelected.fill();
+            inputLayer.fillStyle = grd;
+            inputLayer.fill();
         }
         else {
-            layerSelected.beginPath();
-            layerSelected.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
-            var grd = layerSelected.createRadialGradient(x, y, brushSize * 2 / brushGrad, x , y , brushSize * 2);
+            inputLayer.beginPath();
+            inputLayer.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
+            var grd = inputLayer.createRadialGradient(x, y, brushSize * 2 / brushGrad, x, y, brushSize * 2);
             grd.addColorStop(0, brushColour);
             grd.addColorStop(1, 'rgba(255,255,255,0)')
-            layerSelected.fillStyle = grd;
-            layerSelected.fill();
+            inputLayer.fillStyle = grd;
+            inputLayer.fill();
         }
     }
 }
@@ -109,14 +113,14 @@ function colourSet(inr, ing, inb) {
     document.getElementById('bcolDisplay').innerHTML = b;
     document.getElementById('bcol').value = b;
     brushColour = "rgba(" + r + "," + g + "," + b + "," + o + ")";
-    display(canvas6.width / 2, canvas6.height / 2);
+    display();
     mode = "draw";
 }
 function opacSet(input) {
     o = input / 100;
     brushColour = "rgba(" + r + "," + g + "," + b + "," + o + ")";
     document.getElementById('ocolDisplay').innerHTML = o;
-    display(canvas6.width / 2, canvas6.height / 2);
+    display();
     mode = "draw";
 }
 function reset() {
@@ -124,12 +128,6 @@ function reset() {
 }
 function erase() {
     mode = "erase";
-}
-function brushSet(input) {
-    brushSize = input;
-    document.getElementById("sizeDisplay").innerHTML = brushSize;
-    display(canvas6.width / 2, canvas6.height / 2);
-    mode = "draw";
 }
 function backgroundColour(input) {
     context.beginPath();
@@ -140,8 +138,8 @@ function backgroundColour(input) {
 }
 window.onmousemove = function (e) {
     e = e || window.event;
-    posit[0] = e.clientX - 0 || e.pageX - 0;
-    posit[1] = e.clientY - 40|| e.pageY - 40;
+    posit[0] = e.clientX || e.pageX;
+    posit[1] = e.clientY || e.pageY;
     if (mouse === true) {
         if (mode === "erase") {
             if (posit[1] > canvas.height || posit[0] > canvas.width || posit[1] <= 0) { }
@@ -150,10 +148,10 @@ window.onmousemove = function (e) {
             }
         }
         else {
-            draw(posit[0], posit[1]);
+            submitDraw(posit[0], posit[1], layerSelected);
         }
     }
-    display(canvas6.width / 2, canvas6.height / 2);
+    display();
 };
 window.onmousedown = function (e) {
     mouse = true;
@@ -166,7 +164,7 @@ window.onmousedown = function (e) {
         } 
     }
     else {
-        draw(posit[0], posit[1]);
+        submitDraw(posit[0], posit[1], layerSelected);
     }
 };
 window.onmouseup = function (e) {
@@ -194,44 +192,38 @@ function winUpdate() {
 
 
 //DISPLAY
-function display(x, y) {
-    context6.clearRect(0, 0, canvas.width, canvas.height);
-    if (drawType === "fill") {
-        if (shape === "circle") {
-            context6.beginPath();
-            context6.arc(x, y, brushSize, 0, 2 * Math.PI, false);
-            context6.fillStyle = brushColour;
-            context6.fill();
-        }
-        else {
-            context6.beginPath();
-            context6.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
-            context6.fillStyle = brushColour;
-            context6.fill();
-        }
-    }
-    else {
-        if (shape === "circle") {
-            context6.beginPath();
-            context6.arc(x, y, brushSize, 0, 2 * Math.PI, false);
-            var grd = context6.createRadialGradient(x, y, brushSize / brushGrad, x, y, brushSize);
-            grd.addColorStop(0, brushColour);
-            grd.addColorStop(1, 'rgba(255,255,255,0)');
-            context6.fillStyle = grd;
-            context6.fill();
-        }
-        else {
-            context6.beginPath();
-            context6.rect(x - brushSize, y - brushSize, brushSize * 2, brushSize * 2);
-            var grd = context6.createRadialGradient(x, y, brushSize * 2 / brushGrad, x, y, brushSize * 2);
-            grd.addColorStop(0, brushColour);
-            grd.addColorStop(1, 'rgba(255,255,255,0)');
-            context6.fillStyle = grd;
-            context6.fill();
-        }
-    }
+function display() {
+    displayCtx.clearRect(0, 0, canvas.width, canvas.height);
+    displayCtx.beginPath();
+    displayCtx.rect(0, 0, displayCnv.width, displayCnv.height);
+    displayCtx.fillStyle = back;
+    displayCtx.fill();
+    console.log("Updating display");
+    submitDraw(displayCnv.width / 2, displayCnv.height/2, displayCtx, "display");
 }
-display(canvas6.width / 2, canvas6.height / 2);
+display();
 function drawText(x, y) {
 
 }
+
+/* WIP
+function renderColourSwatch(x, y, sX, sY) {
+    var style = document.createElement("styleInner")
+    style.type = "text/css";
+    var styles = "";
+    var swatches = [];
+    var left = x;
+    var bottom = y;
+    for (var i = 1; i <= 16; i++){
+        console.log("got button" + i);
+        swatches[i] = "button" + i;
+    }
+    for (var i = 1; i <= 4; i++) {
+        for (var j = 1; j <= 4; j++) {
+            styles += "#button"+i*j+" {width: "+sX+"; height: "+sY+"}";
+        }
+    }
+    style.appendChild(document.createTextNode(styles));
+}
+renderColourSwatch(8, 8, 8, 8);
+*/
