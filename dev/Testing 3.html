@@ -11,19 +11,21 @@
     </style>
 </head>
 <body>
-    <button id="line" onclick="shape='circle'" style="position: fixed; right: 0px;">CCC</button>
-    <button id="full" onclick="shape='square'" style="position: fixed; right: 0px; top: 40px;">SSS</button>
-    <canvas id="canvas" width="800" height="800"></canvas>
+    <canvas id="canvas"></canvas>
+    <button id="line" onclick="shape='circle'" style="position: fixed; right: 0px;">Circle</button>
+    <button id="full" onclick="shape='square'" style="position: fixed; right: 0px; top: 40px;">Square</button>
+    
     <script>
         var canvas = document.getElementById('canvas');
         var context = canvas.getContext('2d');
         var gridSpace = 10;
         var colour = "#FC568E"
         var posit = [];
-        var positSet = [100,100];
+        var positSet = [0,0];
         var setting = false;
         var shape = "sq";
-        window.addEventListener('resize', winUpdate, false);
+        window.onload = winUpdate;
+        window.onresize = winUpdate;
         function Shapedraw() {
             context.clearRect(0, 0, canvas.width, canvas.height);
             if (shape === "circle") {
@@ -40,8 +42,8 @@
             }
         }
         function winUpdate() {
-            canvas.width = window.width;
-            canvas.height = window.height;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         }
         function update() {
             Shapedraw();
