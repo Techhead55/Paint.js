@@ -1,0 +1,20 @@
+#menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 200px;
+    width: 100%;
+    background-color: #41A693;
+}
+#title {
+    position: absolute;
+    left: Calc(50% - 100px);
+    bottom: 0;
+    width: 200px;
+    height: 200px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    line-height: 200px;
+    text-align: center;
+    color: white;
+    font-size:50px;
+}
