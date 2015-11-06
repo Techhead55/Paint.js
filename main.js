@@ -1,4 +1,51 @@
-﻿//Canvas's
+var PaintJS = {
+    initialise: function(callback){
+        
+        callback();
+    },
+    saves: {
+        /*
+        
+        canvas1.toDataURL()
+    
+        */
+        set db(data){
+            localStorage.setItem(PaintJS.definitions.ID, JSON.stringify(data));
+            PaintJS.out.print("Database set request recieved. Content was successfully loaded to localStorage");
+        },
+        get db(){
+            var data = JSON.parse(localStorage.getItem(PaintJS.definitions.ID));
+            if (data === null){
+                PaintJS.out.warn("No save database found. Creating blank array.")
+                data = []
+                localStorage.setItem(PaintJS.definitions.ID, JSON.stringify(data));
+            };
+            PaintJS.out.print("Database get request recieved. Content was successfully loaded from localStorage");
+            return data;
+        },
+        saved: function(){
+            
+        },
+        save: function(){
+            
+        }
+    },
+    out: {
+        print: function(msg){
+            log("<Green>"+PaintJS.definitions.ID+":<Black> "+msg)
+        },
+        warn: function(msg){
+            log("<Orange>"+PaintJS.definitions.ID+" WARNING:<Black> "+msg)
+        }
+    },
+    definitions: {
+        ID: "PaintJS"
+    }
+};
+PaintJS.initialise(function(){
+    
+});
+//Canvas's
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var canvas1 = document.getElementById('canvas1');
@@ -21,8 +68,8 @@ var r = 115,
     o = 100;
 //resize
 function resizeCanvas(input) {
-    input.width = document.width;
-    input.height = document.height;
+    input.width = window.innerWidth;
+    input.height = window.innerHeight;
 }
 window.addEventListener('resize', winUpdate, false);
 
@@ -67,6 +114,7 @@ function submitDraw(x, y, inputLayer, display) {
     }
 }
 function draw(x, y, inputLayer) {
+    console.log(x, y);
     if (drawType === "fill") {
         if (shape === "circle") {
             inputLayer.beginPath();
@@ -198,7 +246,6 @@ function display() {
     displayCtx.rect(0, 0, displayCnv.width, displayCnv.height);
     displayCtx.fillStyle = back;
     displayCtx.fill();
-    console.log("Updating display");
     submitDraw(displayCnv.width / 2, displayCnv.height/2, displayCtx, "display");
 }
 display();
@@ -206,24 +253,42 @@ function drawText(x, y) {
 
 }
 
-/* WIP
-function renderColourSwatch(x, y, sX, sY) {
-    var style = document.createElement("styleInner")
-    style.type = "text/css";
-    var styles = "";
-    var swatches = [];
-    var left = x;
-    var bottom = y;
-    for (var i = 1; i <= 16; i++){
-        console.log("got button" + i);
-        swatches[i] = "button" + i;
+
+function renderColourSwatch(config) {
+    var container = document.createElement("div");
+    container.id = "colourSwatch";
+    container.style.position = "fixed"
+    for (i in config){
+        console.log(i);
+        container.style[i] = config[i]+"px";
     }
-    for (var i = 1; i <= 4; i++) {
-        for (var j = 1; j <= 4; j++) {
-            styles += "#button"+i*j+" {width: "+sX+"; height: "+sY+"}";
-        }
+    for (var i=0; i<config.colours.length; i++){
+        var coord = {
+            x:(i-(4*((i-(i%4))/4))), 
+            y:((i-(i%4))/4)
+        };
+        var swatch = document.createElement("button");
+        swatch.style.backgroundColor = config.colours[i];
+        swatch.style.position = "absolute";
+        swatch.style.left = (coord.x*20)+"px";
+        swatch.style.top = (coord.y*20)+"px";
+        swatch.style.width="20px";
+        swatch.style.height="20px";
+        swatch.onclick = function(){
+            var breakDown = this.style.backgroundColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+            colourSet(parseInt(breakDown[1]),parseInt(breakDown[2]),parseInt(breakDown[3]));
+        };
+        container.appendChild(swatch);
     }
-    style.appendChild(document.createTextNode(styles));
+    document.body.appendChild(container);
+    console.log(config.colours.length);
+    
 }
-renderColourSwatch(8, 8, 8, 8);
-*/
+renderColourSwatch({
+    left: 85,
+    bottom: 5,
+    width: 80,
+    height: 160,
+    colours: [/*DARK PURPLE*/"#A944DB",/*PURPLE*/"#C44FFF",/*LIGHT PURPLE*/"#CD6BFF",/*PALE PURPLE*/"#D88AFF",/*DARK BLUE*/"#2D67C4",/*BLUE*/"#4089FF",/*LIGHT BLUE*/"#689EF7",/*PALE BLUE*/"#89B4FA",/*DARK GREEN*/"#42A61E",/*GREEN*/"#57D629",/*LIGHT GREEN*/"#5EE82C",/*LIME GREEN*/"#73FF40",/*RED*/"#FF3636",/*ORANGE*/"#FF7C36",/*LIGHT ORANGE*/"#FFAD29",/*YELLOW*/"#EBE544"]
+});
+

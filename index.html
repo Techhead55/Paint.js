@@ -1,16 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Draw.Js</title>
 
         <!-- Style Sheet -->
-        <link type="text/css" rel="stylesheet" href="styleTesting.css" />
+        <link type="text/css" rel="stylesheet" href="style.css" />
 
         <!-- Favicon -->
         <link rel="icon" href="head.ico" />
 
         <!-- Google Fonts-->
         <link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+        
+        <script src="log.js"></script>
 
     </head>
     <body>
@@ -29,25 +31,7 @@
         <button class="tool" id="brush_tool"  onclick="setDrawType(types[0])">Solid Brush</button>
         <button class="tool" id="spray_tool" onclick="setDrawType(20)">Spray Brush</button>
         <button class="tool" id="colourPicker_tool">D</button>
-        
 
-        <!-- Colour Palette -->
-        <button id="button1" class="pallet" onclick="colourSet(169, 68, 219)"></button>
-        <button id="button2" class="pallet" onclick="colourSet(45, 103, 196)"></button>
-        <button id="button3" class="pallet" onclick="colourSet(66, 166, 30)"></button>
-        <button id="button4" class="pallet" onclick="colourSet(255, 54, 54)"></button>
-        <button id="button5" class="pallet" onclick="colourSet(196, 79, 255)"></button>
-        <button id="button6" class="pallet" onclick="colourSet(64, 137, 255)"></button>
-        <button id="button7" class="pallet" onclick="colourSet(87, 214, 41)"></button>
-        <button id="button8" class="pallet" onclick="colourSet(255, 124, 54)"></button>
-        <button id="button9" class="pallet" onclick="colourSet(205, 107, 255)"></button>
-        <button id="button10" class="pallet" onclick="colourSet(104, 158, 247)"></button>
-        <button id="button11" class="pallet" onclick="colourSet(94, 232, 44)"></button>
-        <button id="button12" class="pallet" onclick="colourSet(255, 173, 41)"></button>
-        <button id="button13" class="pallet" onclick="colourSet(216, 138, 255)"></button>
-        <button id="button14" class="pallet" onclick="colourSet(137, 180, 250)"></button>
-        <button id="button15" class="pallet" onclick="colourSet(115, 255, 64)"></button>
-        <button id="button16" class="pallet" onclick="colourSet(235, 229, 68)"></button>
         <!-- Reset & Eraser Button-->
         <button id="reset" onclick="reset()">Reset The Canvas</button>
         <button id="erase" onclick="erase()">Eraser</button>
@@ -106,6 +90,6 @@
         
 
         <!-- Script -->
-        <script src="mainTesting.js"></script>
+        <script src="main.js"></script>
     </body>
 </html>
