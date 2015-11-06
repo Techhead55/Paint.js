@@ -1,6 +1,6 @@
 var PaintJS = {
     initialise: function(callback){
-        PaintJS.util.xhr("/config.json", function(data){
+        PaintJS.util.xhr("./config.json", function(data){
             PaintJS.config = JSON.parse(data)["Paint.JS"];
             PaintJS.menu.initialise(function(){
                 callback();
