@@ -1,7 +1,125 @@
 var PaintJS = {
     initialise: function(callback){
-        
-        callback();
+        PaintJS.util.xhr("/config.json", function(data){
+            PaintJS.config = JSON.parse(data)["Paint.JS"];
+            PaintJS.menu.initialise(function(){
+                callback();
+            });
+        });
+    },
+    menu: {
+        initialise: function(callback){
+            PaintJS.menu.container = document.getElementById("container_menus");
+            PaintJS.config.menus.forEach(function(v, i, e){
+                PaintJS.menu.array.push(new PaintJS.menu.classes.main(v));
+            });
+            PaintJS.menu.array.forEach(function(v, i, e){
+                PaintJS.menu.container.appendChild(v.element);
+            });
+            callback();
+        },
+        classes: {
+            main: function(config){
+                for (prop in config){
+                    this[prop] = config[prop];
+                }
+                this.element = document.createElement("div");
+                this.element.className = "container_menu";
+                this.element.style.width = this.size.width*40 + "px";
+                this.element.style.height = (this.size.height*40)+10 + "px";
+                this.header = new PaintJS.menu.classes.header({
+                    name: this.name
+                });
+                this.element.appendChild(this.header.element);
+                this.draggie = new Draggabilly(this.element, {
+                    handle: "container_menu_header"
+                });
+                //this.element.style.left = this.location.left ? this.location.left + "px" : window.innerWidth-this.location.right-(this.size.width*40)+'px';
+                //this.element.style.top = this.location.top ? this.location.top+'px' : window.innerHeight-((this.size.height*40)+10)-this.location.bottom+'px';
+                this.element.style.bottom = "auto";
+                $(this.element).draggable({handle:this.header.element});
+                this.content = new PaintJS.menu.classes.content({});
+                this.element.appendChild(this.content.element);
+                if (this.colourSwatch) this.content.element.appendChild(PaintJS.menu.renderColourSwatch(this.colourSwatch));
+                if (this.brushDisplay) this.content.element.appendChild(PaintJS.menu.renderBrushDisplay(this.brushDisplay));
+            },
+            header: function(config){
+                for (prop in config){
+                    this[prop] = config[prop];
+                }
+                this.element = document.createElement("div");
+                this.element.className = "container_menu_header";
+                this.element.innerHTML = this.name;
+            },
+            content: function(config){
+                for (prop in config){
+                    this[prop] = config[prop];
+                }
+                this.element = document.createElement("div");
+                this.element.className = "container_menu_content";
+            }
+        },
+        renderColourSwatch(config) {
+            var swatchGroup = document.createElement("div");
+            swatchGroup.id = "colourSwatch";
+            swatchGroup.style.position = "absolute"
+            for (i in config){
+                if (i !== "colours") swatchGroup.style[i] = (config[i]*40)+"px";
+            }
+            for (var i=0; i<config.colours.length; i++){
+                var coord = {
+                    x:(i-((2*config.width)*((i-(i%(2*config.width)))/(2*config.width)))), 
+                    y:((i-(i%(2*config.width)))/(2*config.width))
+                };
+                var swatch = document.createElement("button");
+                swatch.style.backgroundColor = config.colours[i].hex;
+                swatch.setAttribute("title", config.colours[i].name)
+                swatch.style.position = "absolute";
+                swatch.style.left = (coord.x*20)+"px";
+                swatch.style.top = (coord.y*20)+"px";
+                swatch.style.width="20px";
+                swatch.style.height="20px";
+                swatch.onclick = function(){
+                    var breakDown = this.style.backgroundColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                    colourSet(parseInt(breakDown[1]),parseInt(breakDown[2]),parseInt(breakDown[3]));
+                };
+                swatchGroup.appendChild(swatch);
+            }
+            return (swatchGroup);
+        },
+        renderBrushDisplay(config){
+            var Bcvs = document.createElement("canvas"),
+                Bctx = Bcvs.getContext("2d");
+            for (i in config){
+                Bcvs.style[i] = (config[i]*40)+"px";
+            }
+            Bcvs.style.width = (config.width*40)-2+"px";
+            Bcvs.width = (config.width*40)-2;
+            Bcvs.height = config.height*40;
+            Bcvs.className = "container_menu_brushDisplay";
+            Bcvs.style.position = "absolute";
+            PaintJS.cycle.register(function(){
+                Bctx.clearRect(0, 0, Bcvs.width, Bcvs.height);
+                Bctx.beginPath();
+                Bctx.rect(0, 0, Bcvs.width, Bcvs.height);
+                Bctx.fillStyle = back;
+                Bctx.fill();
+                submitDraw(Bcvs.width / 2, Bcvs.height/2, Bctx, "display");
+            });
+            return Bcvs;
+        },
+        array: []
+    },
+    cycle: {
+        run: function(){
+            PaintJS.cycle.events.forEach(function(v, i, e){
+                v();
+            });
+        }, 
+        register: function(call){
+            PaintJS.cycle.events.push(call);
+        }, 
+        events: []
     },
     saves: {
         /*
@@ -32,19 +150,38 @@ var PaintJS = {
     },
     out: {
         print: function(msg){
-            log("<Green>"+PaintJS.definitions.ID+":<Black> "+msg)
+            log("<Green>"+PaintJS.config.ID+":<Black> "+msg)
         },
         warn: function(msg){
-            log("<Orange>"+PaintJS.definitions.ID+" WARNING:<Black> "+msg)
+            log("<Orange>"+PaintJS.config.ID+" WARNING:<Black> "+msg)
+        },
+        error: function(msg){
+            log("<Red>"+PaintJS.config.ID+" ERROR:<Black> "+msg)
         }
     },
-    definitions: {
+    util: {
+        xhr: function (url, callback) {   
+            var xhr = new XMLHttpRequest();
+            xhr.overrideMimeType("application/json");
+            xhr.open('GET', url, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == "200") {
+                    callback(xhr.responseText);
+                }
+            }
+            xhr.send();  
+        }
+    },
+    config: {
         ID: "PaintJS"
     }
 };
-PaintJS.initialise(function(){
-    
-});
+window.onload=function(){
+    PaintJS.initialise(function(){
+        
+    });
+    winUpdate();
+};
 //Canvas's
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -58,8 +195,6 @@ var canvas4 = document.getElementById('canvas4');
 var context4 = canvas4.getContext('2d');
 var canvas5 = document.getElementById('canvas5');
 var context5 = canvas4.getContext('2d');
-var displayCnv = document.getElementById('brushDisplay');
-var displayCtx = displayCnv.getContext('2d');
 
 // Colours
 var r = 115,
@@ -114,7 +249,6 @@ function submitDraw(x, y, inputLayer, display) {
     }
 }
 function draw(x, y, inputLayer) {
-    console.log(x, y);
     if (drawType === "fill") {
         if (shape === "circle") {
             inputLayer.beginPath();
@@ -219,14 +353,6 @@ window.onmouseup = function (e) {
     mouse = false;
 };
 
-window.onload = function (e) {
-    resizeCanvas(canvas);
-    resizeCanvas(canvas1);
-    resizeCanvas(canvas2);
-    resizeCanvas(canvas3);
-    resizeCanvas(canvas4);
-    resizeCanvas(canvas5);
-}
 function winUpdate() {
     resizeCanvas(canvas);
     resizeCanvas(canvas1);
@@ -241,12 +367,7 @@ function winUpdate() {
 
 //DISPLAY
 function display() {
-    displayCtx.clearRect(0, 0, canvas.width, canvas.height);
-    displayCtx.beginPath();
-    displayCtx.rect(0, 0, displayCnv.width, displayCnv.height);
-    displayCtx.fillStyle = back;
-    displayCtx.fill();
-    submitDraw(displayCnv.width / 2, displayCnv.height/2, displayCtx, "display");
+    PaintJS.cycle.run();
 }
 display();
 function drawText(x, y) {
@@ -259,7 +380,6 @@ function renderColourSwatch(config) {
     container.id = "colourSwatch";
     container.style.position = "fixed"
     for (i in config){
-        console.log(i);
         container.style[i] = config[i]+"px";
     }
     for (var i=0; i<config.colours.length; i++){
@@ -281,14 +401,6 @@ function renderColourSwatch(config) {
         container.appendChild(swatch);
     }
     document.body.appendChild(container);
-    console.log(config.colours.length);
     
 }
-renderColourSwatch({
-    left: 85,
-    bottom: 5,
-    width: 80,
-    height: 160,
-    colours: [/*DARK PURPLE*/"#A944DB",/*PURPLE*/"#C44FFF",/*LIGHT PURPLE*/"#CD6BFF",/*PALE PURPLE*/"#D88AFF",/*DARK BLUE*/"#2D67C4",/*BLUE*/"#4089FF",/*LIGHT BLUE*/"#689EF7",/*PALE BLUE*/"#89B4FA",/*DARK GREEN*/"#42A61E",/*GREEN*/"#57D629",/*LIGHT GREEN*/"#5EE82C",/*LIME GREEN*/"#73FF40",/*RED*/"#FF3636",/*ORANGE*/"#FF7C36",/*LIGHT ORANGE*/"#FFAD29",/*YELLOW*/"#EBE544"]
-});
-
+//"colours": [/*DARK PURPLE*/"#A944DB",/*PURPLE*/"#C44FFF",/*LIGHT PURPLE*/"#CD6BFF",/*PALE PURPLE*/"#D88AFF",/*DARK BLUE*/"#2D67C4",/*BLUE*/"#4089FF",/*LIGHT BLUE*/"#689EF7",/*PALE BLUE*/"#89B4FA",/*DARK GREEN*/"#42A61E",/*GREEN*/"#57D629",/*LIGHT GREEN*/"#5EE82C",/*LIME GREEN*/"#73FF40",/*RED*/"#FF3636",/*ORANGE*/"#FF7C36",/*LIGHT ORANGE*/"#FFAD29",/*YELLOW*/"#EBE544"]

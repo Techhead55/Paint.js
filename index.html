@@ -13,9 +13,14 @@
         <link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
         
         <script src="log.js"></script>
-
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/draggabilly/1.2.0/draggabilly.pkgd.min.js"></script>
     </head>
     <body>
+        
+        <!-- OLD STUFF, JUST KEEPING FOR MIGRATION-->
+        
         <!-- Canvas's -->
         <canvas id="canvas" class="select"></canvas>
         <canvas id="canvas1" class="select"></canvas>
@@ -59,8 +64,7 @@
         <button id="q" class="button" onclick="">Draw A Square</button>
         <button id="r" class="button" onclick="">Draw A Circle</button>
 
-        <!-- Brush display -->
-        <canvas id="brushDisplay" height="160" width="160"></canvas>
+    
 
         <!-- size slider-->
         <div id="sizeDisplay">30</div>
@@ -91,5 +95,13 @@
 
         <!-- Script -->
         <script src="main.js"></script>
+        
+        
+        <!-- NEW -->
+        
+        <div id="container">
+            <div id="container_menus"></div>
+        </div>
+        
     </body>
 </html>

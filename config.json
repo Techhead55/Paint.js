@@ -1,0 +1,296 @@
+{
+    "Paint.JS": {
+        "ID": "Paint.JS",
+        "menus": [{
+            "name": "Main",
+            "location": {
+                "bottom": 5,
+                "left": 5
+            }, 
+            "size": {
+                "width": 7,
+                "height": 4
+            },
+            "colourSwatch": {
+                "left": 4,
+                "top": 0,
+                "width": 3,
+                "height": 4,
+                "colours": [{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                }]
+            }
+        },{
+            "name": "Brush",
+            "location": {
+                "top": 5,
+                "right": 5
+            }, 
+            "size": {
+                "width": 4,
+                "height": 7
+            },
+            "brushDisplay": {
+                "left": 0,
+                "top": 0,
+                "width": 4,
+                "height": 4
+            }
+        },{
+            "name": "Colours",
+            "location": {
+                "bottom": 5,
+                "left": 5
+            }, 
+            "size": {
+                "width": 2,
+                "height": 4
+            },
+            "colourSwatch": {
+                "left": 0,
+                "top": 0,
+                "width": 2,
+                "height": 4,
+                "colours": [{
+                    "hex": "#FFFFF0",
+                    "name": "Ivory"
+                },{
+                    "hex": "#F5F5DC",
+                    "name": "Beige"
+                },{
+                    "hex": "#F5DEB3",
+                    "name": "Wheat"
+                },{
+                    "hex": "#D2B48C",
+                    "name": "Tan"
+                },{
+                    "hex": "#C3B091",
+                    "name": "Khaki"
+                },{
+                    "hex": "#C0C0C0",
+                    "name": "Silver"
+                },{
+                    "hex": "#808080",
+                    "name": "Gray"
+                },{
+                    "hex": "#464646",
+                    "name": "Charcoal"
+                },{
+                    "hex": "#000080",
+                    "name": "Navy Blue"
+                },{
+                    "hex": "#084C9E",
+                    "name": "Royal Blue"
+                },{
+                    "hex": "#0000CD",
+                    "name": "Medium Blue"
+                },{
+                    "hex": "#007FFF",
+                    "name": "Azure"
+                },{
+                    "hex": "#00FFFF",
+                    "name": "Cyan"
+                },{
+                    "hex": "#7FFFD4",
+                    "name": "Aquamarine"
+                },{
+                    "hex": "#008080",
+                    "name": "Teal"
+                },{
+                    "hex": "#228B22",
+                    "name": "Forest Green"
+                },{
+                    "hex": "#808000",
+                    "name": "Olive"
+                },{
+                    "hex": "#7FFF00",
+                    "name": "Chartreuse"
+                },{
+                    "hex": "#BFFF00",
+                    "name": "Lime"
+                },{
+                    "hex": "#FFD700",
+                    "name": "Golden"
+                },{
+                    "hex": "#DAA520",
+                    "name": "Goldenrod"
+                },{
+                    "hex": "#FF7F50",
+                    "name": "Coral"
+                },{
+                    "hex": "#FA8072",
+                    "name": "Salmon"
+                },{
+                    "hex": "#FC0FC0",
+                    "name": "Hot Pink"
+                },{
+                    "hex": "#FF77FF",
+                    "name": "Fuchsia"
+                },{
+                    "hex": "#CC8899",
+                    "name": "Puce"
+                },{
+                    "hex": "#E0B0FF",
+                    "name": "Mauve"
+                },{
+                    "hex": "#B57EDC",
+                    "name": "Lavender"
+                },{
+                    "hex": "#843179",
+                    "name": "Plum"
+                },{
+                    "hex": "#4B0082",
+                    "name": "Indigo"
+                },{
+                    "hex": "#800000",
+                    "name": "Maroon"
+                },{
+                    "hex": "#DC143C",
+                    "name": "Crimson"
+                }]
+            }
+        }]
+    }
+}
