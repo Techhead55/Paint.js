@@ -6,8 +6,30 @@
     width: 100%;
 }
 .container_menu {
-    position: fixed;
+    position: !fixed;
     background-color: #4b4a4a; 
+}
+.container_menu_header {
+    position: absolute;
+    background-color: #313131; 
+    height: 10px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-family: 'Fauna One', serif;
+    font-size: 8px;
+    line-height: 10px;
+}
+.container_menu_content {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    height: Calc(100% - 10px);
+    width: 100%;
+}
+.container_menu_brushDisplay {
+    border-left: #4b4a4a solid 1px; 
+    border-right: #4b4a4a solid 1px; 
 }
 /*    OLD   */
 
