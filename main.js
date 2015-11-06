@@ -1,7 +1,39 @@
 var PaintJS = {
     initialise: function(callback){
-        
-        callback();
+        PaintJS.util.xhr("/config.json", function(data){
+            PaintJS.config = JSON.parse(data)["Paint.JS"];
+            PaintJS.menu.initialise(function(){
+                callback();
+            });
+        });
+    },
+    menu: {
+        initialise: function(callback){
+            PaintJS.menu.container = document.getElementById("container_menus");
+            PaintJS.config.menus.forEach(function(v, i, e){
+                PaintJS.menu.array.push(new PaintJS.menu.classes.main(v));
+            });
+            callback();
+        },
+        classes: {
+            main: function(config){
+                for (prop in config){
+                    this[prop] = config[prop];
+                }
+                this.element = document.createElement("div");
+                this.element.className = "container_menu";
+                for (prop in this.location){
+                    this.element.style[prop] = this.location[prop] + "px";
+                }
+                this.element.style.width = this.size.width*40 + "px";
+                this.element.style.height = (this.size.height*40)+10 + "px";
+                PaintJS.menu.container.appendChild(this.element);
+            },
+            header: function(){
+                
+            }
+        },
+        array: []
     },
     saves: {
         /*
@@ -32,19 +64,38 @@ var PaintJS = {
     },
     out: {
         print: function(msg){
-            log("<Green>"+PaintJS.definitions.ID+":<Black> "+msg)
+            log("<Green>"+PaintJS.config.ID+":<Black> "+msg)
         },
         warn: function(msg){
-            log("<Orange>"+PaintJS.definitions.ID+" WARNING:<Black> "+msg)
+            log("<Orange>"+PaintJS.config.ID+" WARNING:<Black> "+msg)
+        },
+        error: function(msg){
+            log("<Red>"+PaintJS.config.ID+" ERROR:<Black> "+msg)
         }
     },
-    definitions: {
+    util: {
+        xhr: function (url, callback) {   
+            var xhr = new XMLHttpRequest();
+            xhr.overrideMimeType("application/json");
+            xhr.open('GET', url, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == "200") {
+                    callback(xhr.responseText);
+                }
+            }
+            xhr.send();  
+        }
+    },
+    config: {
         ID: "PaintJS"
     }
 };
-PaintJS.initialise(function(){
-    
-});
+window.onload=function(){
+    PaintJS.initialise(function(){
+        
+    });
+    winUpdate();
+};
 //Canvas's
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -114,7 +165,6 @@ function submitDraw(x, y, inputLayer, display) {
     }
 }
 function draw(x, y, inputLayer) {
-    console.log(x, y);
     if (drawType === "fill") {
         if (shape === "circle") {
             inputLayer.beginPath();
@@ -219,14 +269,6 @@ window.onmouseup = function (e) {
     mouse = false;
 };
 
-window.onload = function (e) {
-    resizeCanvas(canvas);
-    resizeCanvas(canvas1);
-    resizeCanvas(canvas2);
-    resizeCanvas(canvas3);
-    resizeCanvas(canvas4);
-    resizeCanvas(canvas5);
-}
 function winUpdate() {
     resizeCanvas(canvas);
     resizeCanvas(canvas1);
@@ -259,7 +301,6 @@ function renderColourSwatch(config) {
     container.id = "colourSwatch";
     container.style.position = "fixed"
     for (i in config){
-        console.log(i);
         container.style[i] = config[i]+"px";
     }
     for (var i=0; i<config.colours.length; i++){
@@ -281,7 +322,6 @@ function renderColourSwatch(config) {
         container.appendChild(swatch);
     }
     document.body.appendChild(container);
-    console.log(config.colours.length);
     
 }
 renderColourSwatch({

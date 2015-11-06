@@ -1,4 +1,17 @@
-﻿body{
+#container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.container_menu {
+    position: fixed;
+    background-color: #4b4a4a; 
+}
+/*    OLD   */
+
+body{
     background-color: #9FD3DA;
     /*cursor: pointer;*/
 }

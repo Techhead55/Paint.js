@@ -1,0 +1,24 @@
+{
+    "Paint.JS": {
+        "ID": "Paint.JS",
+        "menus": [{
+            "location": {
+                "bottom": 5,
+                "left": 5
+            }, 
+            "size": {
+                "width": 6,
+                "height": 4
+            }
+        },{
+            "location": {
+                "top": 5,
+                "right": 5
+            }, 
+            "size": {
+                "width": 4,
+                "height": 7
+            }
+        }]
+    }
+}
