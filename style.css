@@ -6,7 +6,7 @@
     width: 100%;
 }
 .container_menu {
-    position: !fixed;
+    position: fixed;
     background-color: #4b4a4a; 
 }
 .container_menu_header {

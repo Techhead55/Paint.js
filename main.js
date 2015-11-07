@@ -31,13 +31,9 @@ var PaintJS = {
                     name: this.name
                 });
                 this.element.appendChild(this.header.element);
-                this.draggie = new Draggabilly(this.element, {
-                    handle: "container_menu_header"
-                });
-                //this.element.style.left = this.location.left ? this.location.left + "px" : window.innerWidth-this.location.right-(this.size.width*40)+'px';
-                //this.element.style.top = this.location.top ? this.location.top+'px' : window.innerHeight-((this.size.height*40)+10)-this.location.bottom+'px';
-                this.element.style.bottom = "auto";
-                $(this.element).draggable({handle:this.header.element});
+                for (prop in this.location){
+                    this.element.style[prop] = (this.location[prop]*40)+5 + "px";
+                }
                 this.content = new PaintJS.menu.classes.content({});
                 this.element.appendChild(this.content.element);
                 if (this.colourSwatch) this.content.element.appendChild(PaintJS.menu.renderColourSwatch(this.colourSwatch));
