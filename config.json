@@ -4,8 +4,8 @@
         "menus": [{
             "name": "Main",
             "location": {
-                "bottom": 5,
-                "left": 5
+                "bottom": 0,
+                "left": 0
             }, 
             "size": {
                 "width": 7,
@@ -20,73 +20,73 @@
                     "hex": "#FFFFF0",
                     "name": "Ivory"
                 },{
-                    "hex": "#FFFFF0",
+                    "hex": "#FF6138",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFF9D",
+                    "name": "Ivory"
+                },{
+                    "hex": "#BEEB9F",
+                    "name": "Ivory"
+                },{
+                    "hex": "#79BD8F",
+                    "name": "Ivory"
+                },{
+                    "hex": "#00A388",
                     "name": "Ivory"
                 },{
                     "hex": "#FFFFF0",
                     "name": "Ivory"
                 },{
-                    "hex": "#FFFFF0",
+                    "hex": "#105B63",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFFAD5",
+                    "name": "Ivory"
+                },{
+                    "hex": "#FFD34E",
+                    "name": "Ivory"
+                },{
+                    "hex": "#DB9E36",
+                    "name": "Ivory"
+                },{
+                    "hex": "#BD4932",
                     "name": "Ivory"
                 },{
                     "hex": "#FFFFF0",
                     "name": "Ivory"
                 },{
-                    "hex": "#FFFFF0",
+                    "hex": "#2C3E50",
+                    "name": "Ivory"
+                },{
+                    "hex": "#E74C3C",
+                    "name": "Ivory"
+                },{
+                    "hex": "#ECF0F1",
+                    "name": "Ivory"
+                },{
+                    "hex": "#3498DB",
+                    "name": "Ivory"
+                },{
+                    "hex": "#2980B9",
                     "name": "Ivory"
                 },{
                     "hex": "#FFFFF0",
                     "name": "Ivory"
                 },{
-                    "hex": "#FFFFF0",
+                    "hex": "#04BFBF",
                     "name": "Ivory"
                 },{
-                    "hex": "#FFFFF0",
+                    "hex": "#CAFCD8",
                     "name": "Ivory"
                 },{
-                    "hex": "#FFFFF0",
+                    "hex": "#F7E967",
                     "name": "Ivory"
                 },{
-                    "hex": "#FFFFF0",
+                    "hex": "#A9CF54",
                     "name": "Ivory"
                 },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
-                    "name": "Ivory"
-                },{
-                    "hex": "#FFFFF0",
+                    "hex": "#588F27",
                     "name": "Ivory"
                 },{
                     "hex": "#FFFFF0",
@@ -165,8 +165,8 @@
         },{
             "name": "Brush",
             "location": {
-                "top": 5,
-                "right": 5
+                "top": 0,
+                "right": 0
             }, 
             "size": {
                 "width": 4,
@@ -179,10 +179,20 @@
                 "height": 4
             }
         },{
+            "name": "LAYERS",
+            "location": {
+                "bottom": 0,
+                "right": 0
+            }, 
+            "size": {
+                "width": 4,
+                "height": 6
+            }
+        },{
             "name": "Colours",
             "location": {
-                "bottom": 5,
-                "left": 5
+                "bottom": 0,
+                "left": 7.125
             }, 
             "size": {
                 "width": 2,
